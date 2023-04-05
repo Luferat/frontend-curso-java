@@ -1,19 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body {
-            background-color: aquamarine;
+        div{
+            display: flex;
+            justify-content: space-around;
+        }
+        div ul {
+            padding: 0;
+        }
+
+        .dropdown {
+            display: table;
+            transition: .2s;
+            list-style: none;
+        }
+
+        .dropdown ul {
+            display: none;
+            position: absolute;
+            left: auto;
+            background-color: yellow;
+            list-style: none;
+        }
+
+        .dropdown:hover ul {
+            display: block;
         }
     </style>
 </head>
+
 <body>
 
-    lorem ipsum
-    
+    <div>
+        <ul class="dropdown">
+            <li>Menu</li>
+            <ul>
+                <li>Item</li>
+                <li>Item</li>
+                <li>Item</li>
+                <li>Item</li>
+            </ul>
+        </ul>
+        <ul class="dropdown">
+            <li>Menu</li>
+            <ul>
+                <li>Item</li>
+                <li>Item</li>
+                <li>Item</li>
+                <li>Item</li>
+            </ul>
+        </ul>
+        
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, cumque est nobis quia dicta hic eligendi sed
+        explicabo dolorem tempora saepe dignissimos. Dolore ea modi magni minus eaque nulla est.</p>
 </body>
+
 </html>

@@ -5,8 +5,13 @@
 
 /* Importa algumas bibliotecas externas. */
 
+/* Fonte Roboto do "Google Fonts". */
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* Font Awesome → Ícones e Glyphicons. */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+/* Normlize → Padroniza a view do CSS entre navegadores. */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
 
 /* RESET - Normalize */
@@ -57,10 +62,48 @@ body {
     width: 100%;
     max-width: 1024px;
     margin: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Renderiza cabeçalho. */
 
+#wrap>header {
+    background-color: rgba(17, 45, 68, .85);
+    margin: 0.5rem;
+    border-radius: .35rem;
+    border: 1px dotted grey;
+    display: flex;
+    align-items: center;
+}
+
+#wrap>header a {
+    font-size: 4rem;
+    color: orange;
+    -webkit-text-stroke: .5px white;
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
+    text-decoration: none;
+}
+
+#wrap>header i {
+    display: block;
+}
+
+#wrap>header h1 {
+    margin: 0;
+    text-align: center;
+    letter-spacing: .25rem;
+    color: white;
+}
+
+#wrap>header h1 small {
+    display: block;
+    font-weight: normal;
+    font-size: .8rem;
+    letter-spacing: normal;
+}
+
+/* 
 #wrap>header {
     background-color: white;
     margin: 0.5rem;
@@ -83,4 +126,209 @@ body {
 
 #wrap>header h1 {
     margin: 0;
+    text-align: center;
+    letter-spacing: .25rem;
+    color: orangered;
+}
+
+#wrap>header h1 small {
+    display: block;
+    font-weight: normal;
+    font-size: .8rem;
+    letter-spacing: normal;
+} */
+
+/* Menu principal */
+
+#wrap>nav {
+    background-color: rgba(0, 0, 0, .7);
+    border: 1px dotted grey;
+    border-radius: .35rem;
+    margin: 0 .5rem .5rem .5rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#wrap>nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: .65rem .75rem;
+    color: #ddd;
+    text-decoration: none;
+    border-radius: .35rem;
+    transition: .2s;
+}
+
+#wrap>nav a:first-child {
+    margin-right: auto;
+}
+
+#wrap>nav a:hover {
+    background-color: #3f3f3f;
+    color: #fff;
+}
+
+#wrap>nav a i {
+    font-size: 2rem;
+    margin-bottom: .4rem;
+}
+
+/* Conteúdo */
+
+#wrap>main {
+    display: flex;
+    margin: 0 .5rem;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+#wrap>main>article {
+    background-color: rgba(255, 255, 255, .9);
+    border-radius: .35rem;
+    border: 1px dotted grey;
+    flex-grow: 1;
+}
+
+#wrap>main>aside {
+    background-color: rgba(255, 237, 205, .9);
+    margin-top: .5rem;
+    border-radius: .35rem;
+    border: 1px dotted grey;
+}
+
+/* Rodapé */
+
+#wrap>footer {
+    background-color: black;
+    margin: .5rem;
+    margin-bottom: 0;
+    border-radius: .35rem;
+    border: 1px dotted grey;
+}
+
+/* Linha superior do rodapé. */
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dotted grey;
+}
+
+.footer-top div {
+    color: white;
+    text-align: center;
+}
+
+.footer-top a {
+    color: #ddd;
+    font-size: 1.5rem;
+    padding: .25rem;
+}
+
+.footer-top a:hover {
+    color: #929292;
+    text-decoration: none;
+}
+
+/* Linha inferior do rodapé. */
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-around;
+    color: #ddd;
+}
+
+.footer-bottom h4 {
+    margin: .5rem 0;
+}
+
+.footer-bottom ul {
+    list-style: none;
+    padding: 0;
+    line-height: 1.7;
+}
+
+.footer-bottom a {
+    color: #ddd;
+}
+
+.footer-bottom a:hover {
+    color: #929292;
+    text-decoration: none;
+}
+
+/* Rack para mostrar margem inferior em dispositivos mobile. */
+
+.nbsp {
+    height: .1px;
+    margin: 0;
+    border: .25rem solid transparent;
+}
+
+/***********************/
+/* Em larguras maiores */
+/***********************/
+
+@media screen and (min-width: 480px) {
+
+    /* Menu principal */
+
+    #wrap>nav {
+        justify-content: space-between;
+    }
+
+    #wrap>nav a:first-child {
+        margin-right: 0;
+    }
+
+    #wrap>nav a {
+        flex-direction: row;
+    }
+
+    #wrap>nav a i {
+        font-size: 1.2rem;
+        margin-bottom: 0;
+        margin-right: .5rem;
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+
+    #wrap>main {
+        flex-direction: row;
+    }
+
+    #wrap>main>aside {
+        margin-top: 0;
+        margin-left: .5rem;
+        min-width: 220px;
+        max-width: 220px;
+    }
+
+}
+
+#gadgets {
+    background-color: lightslategrey;
+    position: fixed;
+    z-index: 100;
+    right: 0;
+    top: 200px;
+    border-radius: .35rem 0 0 .35rem;
+    padding: .25rem;
+}
+
+#gadgets ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: ;
+}
+
+
+#gadgets a {
+    color: white;
+    font-size: 2rem;
 }
