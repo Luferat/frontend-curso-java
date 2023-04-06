@@ -1,37 +1,60 @@
-/*
+/**
+ * FrontEndeiros 1.0
+ * MIT License 2023 By Luferat
+ **/
+
+/**
  * Folhas de estilo do template do site.
- * By Luferat
- */
+ **/
 
-/* Importa algumas bibliotecas externas. */
+/******************************************************************/
+/* Importa algumas bibliotecas externas para agilizar o trabalho. */
+/******************************************************************/
 
-/* Fonte Roboto do "Google Fonts". */
+/**
+ * Fonte Roboto do "Google Fonts".
+ * Referências: https://fonts.google.com/
+ **/
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-/* Font Awesome → Ícones e Glyphicons. */
+/**
+ * Font Awesome → Ícones e Glyphicons. 
+ * Referências: https://fontawesome.com/
+ */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
-/* Normlize → Padroniza a view do CSS entre navegadores. */
+/**
+ * Normalize → CSS que padroniza a view entre diversos navegadores.
+ * Referências: 
+ *  • https://github.com/necolas/normalize.css
+ *  • https://necolas.github.io/normalize.css/
+ */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
 
-/* RESET - Normalize */
+/**********************************************/
+/* Configuração inicial do CSS do aplicativo. */
+/**********************************************/
 
+/* Todos os elementos */
 * {
     box-sizing: border-box;
     outline: none;
-    transition: .2s;
+    transition: .15s;
 }
 
+/* Elementos raiz */
 html,
 body {
     position: relative;
     width: 100%;
     height: 100%;
-    /* Fonte padrão da página. */
+    /* Define a fonte padrão da página. */
     font-family: Roboto, sans-serif;
     /* Define a unidade responsiva 'rem', onde 1rem = 16px. */
     font-size: 16px;
 }
+
+/* Links em geral */
 
 a {
     color: #4682b4;
@@ -46,7 +69,6 @@ a:hover {
 /* Define o fundo padrão da página. */
 
 body {
-    /* Fundo */
     background-attachment: fixed;
     background-color: #000059;
     background-image: url('/img/background01.jpg');
@@ -55,33 +77,36 @@ body {
     background-size: cover;
 }
 
-/* Limita e centraliza a página usando 'wrap'. */
+/* Contêiner que limita e centraliza a página usando o método 'wrap'. */
 
 #wrap {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    max-width: 1054px;
-    margin: auto;
     display: flex;
     flex-direction: column;
+    height: 100%;
+    margin: auto;
+    position: relative;
+    width: 100%;
+    /* Largura maxima do conteúdo da página. */
+    max-width: 1054px;
 }
 
-/* Renderiza cabeçalho. */
+/*********************/
+/* Cabeçalho do tema */
+/*********************/
 
 #wrap>header {
-    background-color: rgba(17, 45, 68, 0.85);
-    margin: 0.5rem;
+    align-items: center;
+    background-color: rgba(17, 45, 68, .7);
     border-radius: .35rem;
     border: 1px dotted #808080;
     display: flex;
-    align-items: center;
+    margin: 0.5rem;
 }
 
 #wrap>header a {
-    font-size: 4rem;
-    color: #ffa500;
     -webkit-text-stroke: .5px #ffffff;
+    color: #ffa500;
+    font-size: 3rem;
     padding: 0.5rem 1rem 0.5rem 0.5rem;
     text-decoration: none;
 }
@@ -91,40 +116,41 @@ body {
 }
 
 #wrap>header h1 {
-    margin: 0;
-    text-align: center;
-    letter-spacing: .1rem;
     color: #ffffff;
     font-size: 1.5rem;
+    letter-spacing: .1rem;
+    margin: 0;
+    text-align: center;
 }
 
 #wrap>header h1 small {
     display: block;
-    font-weight: normal;
     font-size: .86rem;
+    font-weight: normal;
     letter-spacing: normal;
 }
 
-/* Menu principal */
+/**************************/
+/* Menu principal do tema */
+/**************************/
 
 #wrap>nav {
     background-color: rgba(0, 0, 0, .7);
     border: 1px dotted #808080;
     border-radius: .35rem;
-    margin: 0 .5rem .5rem .5rem;
     display: flex;
     justify-content: flex-end;
+    margin: 0 .5rem .5rem .5rem;
 }
 
 #wrap>nav a {
+    align-items: center;
+    border-radius: .35rem;
+    color: #ddd;
     display: flex;
     flex-direction: column;
-    align-items: center;
     padding: .65rem .75rem;
-    color: #ddd;
     text-decoration: none;
-    border-radius: .35rem;
-    transition: .2s;
 }
 
 #wrap>nav a:first-child {
@@ -141,13 +167,22 @@ body {
     margin-bottom: .4rem;
 }
 
+/************/
 /* Conteúdo */
+/************/
+
+/**
+ * IMPORTANTE!
+ * Estamos em um aplicativo SPA que, além de definir este CSS para o tema, 
+ * também define um CSS para cada página.
+ * Consulte a pasta '/pages' para mais detalhes.
+ **/
 
 #wrap>main {
     display: flex;
-    margin: 0 .5rem;
-    flex-grow: 1;
     flex-direction: column;
+    flex-grow: 1;
+    margin: 0 .5rem;
 }
 
 #wrap>main>article {
@@ -160,45 +195,50 @@ body {
 
 #wrap>main>aside {
     background-color: rgba(255, 237, 205, .9);
-    margin-top: .5rem;
     border-radius: .35rem;
     border: 1px dotted #808080;
+    margin-top: .5rem;
     padding: 0 1rem;
 }
 
-/* Rodapé */
+/******************/
+/* Rodapé do tema */
+/******************/
 
 #wrap>footer {
-    background-color: #000000;
-    margin: .5rem;
-    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
     border-radius: .35rem;
     border: 1px dotted grey;
+    color: #ddd;
+    margin: .5rem .5rem 0 .5rem;
+}
+
+#wrap>footer a {
+    color: #ddd;
+    text-decoration: none;
+}
+
+#wrap>footer a:hover {
+    color: #ffa500;
+    text-decoration: none;
 }
 
 /* Linha superior do rodapé. */
 
 .footer-top {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
     border-bottom: 1px dotted #808080;
+    display: flex;
+    justify-content: space-between;
 }
 
 .footer-top div {
-    color: #ffffff;
     text-align: center;
 }
 
 .footer-top a {
-    color: #ddd;
     font-size: 1.5rem;
-    padding: .25rem;
-}
-
-.footer-top a:hover {
-    color: #929292;
-    text-decoration: none;
+    padding: .4rem;
 }
 
 /* Linha inferior do rodapé. */
@@ -206,7 +246,6 @@ body {
 .footer-bottom {
     display: flex;
     justify-content: space-around;
-    color: #ddd;
 }
 
 .footer-bottom h4 {
@@ -214,39 +253,40 @@ body {
 }
 
 .footer-bottom ul {
+    line-height: 1.7;
     list-style: none;
     padding: 0;
-    line-height: 1.7;
 }
 
-.footer-bottom a {
-    color: #ddd;
-}
-
-.footer-bottom a:hover {
-    color: #ffa500;
-    text-decoration: none;
-}
+/*****************/
+/* Outras coisas */
+/*****************/
 
 /* Rack para mostrar margem inferior em dispositivos mobile. */
 
 .nbsp {
-    height: .1px;
-    margin: 0;
     border: .25rem solid transparent;
+    height: .1px;
+    margin: 0;    
 }
 
-/***********************/
-/* Em larguras maiores */
-/***********************/
+/**************************************************/
+/* Responsividade → Em larguras maiores que 480px */
+/**************************************************/
 
 @media screen and (min-width: 480px) {
 
-    /* Cabeçalho */
+    /*********************/
+    /* Cabeçalho do tema */
+    /*********************/
+
+    #wrap>header a {
+        font-size: 4rem;
+    }
 
     #wrap>header h1 {
-        letter-spacing: .1rem;
         font-size: 2rem;
+        letter-spacing: .1rem;        
     }
 
     #wrap>header h1 small {
@@ -254,7 +294,9 @@ body {
         letter-spacing: .06rem;
     }
 
-    /* Menu principal */
+    /**************************/
+    /* Menu principal do tema */
+    /**************************/
 
     #wrap>nav {
         justify-content: space-around;
@@ -274,7 +316,9 @@ body {
         margin-right: .5rem;
     }
 
-    /* Footer */
+    /******************/
+    /* Rodapé do tema */
+    /******************/
 
     .footer-bottom ul {
         padding-left: 1rem;
@@ -282,17 +326,25 @@ body {
 
 }
 
+/**************************************************/
+/* Responsividade → Em larguras maiores que 768px */
+/**************************************************/
+
 @media screen and (min-width: 768px) {
+
+    /************/
+    /* Conteúdo */
+    /************/
 
     #wrap>main {
         flex-direction: row;
     }
 
     #wrap>main>aside {
-        margin-top: 0;
         margin-left: .5rem;
-        min-width: 220px;
+        margin-top: 0;
         max-width: 220px;
+        min-width: 220px;
     }
 
 }
