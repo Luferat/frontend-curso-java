@@ -71,7 +71,7 @@ a:hover {
 body {
     background-attachment: fixed;
     background-color: #000059;
-    background-image: url('/img/background01.jpg');
+    background-image: url('img/background01.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

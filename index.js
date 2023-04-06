@@ -101,9 +101,9 @@ function loadpage(page) {
      *  • https://www.w3schools.com/js/js_string_templates.asp
      */
     const path = {
-        html: `/pages/${page}/index.html`,
-        css: `/pages/${page}/index.css`,
-        js: `/pages/${page}/index.js`
+        html: `pages/${page}/index.html`,
+        css: `pages/${page}/index.css`,
+        js: `pages/${page}/index.js`
     }
 
     /**
