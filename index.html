@@ -1,16 +1,140 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site para apresentação dos conceitos de front-end.">
+    <meta name="author" descrition="André Luferat &lt;andre@luferat.net&gt;">
+    <meta name="keywords" description="JavaScript, HTML5, CSS3, semântica, mobile-first, responsividade, api, rest">
     <link rel="stylesheet" href="/index.css">
-    <title>FrontEnd</title>
+    <link rel="shortcut icon" href="/img/favicon.alfa.png">
+    <title>FrontEndeiros</title>
 </head>
+
 <body>
 
+    <!-- WRAP -->
+    <div id="wrap">
 
+        <!-- Âncora para o topo da página → #top -->
+        <a id="top"></a>
+
+        <!-- Cabeçalho -->
+        <header>
+            <a href="/"><i class="fa-solid fa-laptop-code fa-fw"></i></a>
+            <h1>FrontEndeiros<small>Programando para o futuro</small></h1>
+        </header>
+
+        <!-- Menu -->
+        <nav>
+            <!-- Item de menu -->
+            <a href="/">
+
+                <!-- Ícone do item do menu -->
+                <i class="fa-solid fa-house fa-fw"></i>
+
+                <!-- Label do item do menu -->
+                <span>Início</span>
+            </a>
+
+            <!-- Os outros itens seguem o mesmo padrão acima -->
+            <a href="/contacts">
+                <i class="fa-solid fa-headset fa-fw"></i>
+                <span>Contatos</span>
+            </a>
+            <a href="/about">
+                <i class="fa-solid fa-circle-info fa-fw"></i>
+                <span>Sobre</span>
+            </a>
+
+            <a href="/profile">
+                <i class="fa-solid fa-user fa-fw"></i>
+                <span>Login</span>
+            </a>
+        </nav>
+
+        <!-- Conteúdo principal -->
+        <main></main>
+
+        <!-- Rodapé -->
+        <footer>
+
+            <!-- Primeira linha do rodapé -->
+            <div class="footer-top">
+                <a href="/">
+                    <i class="fa-solid fa-house fa-fw"></i>
+                </a>
+                <div>&copy; 2023 Joca da Silva</div>
+                <a href="#top">
+                    <i class="fa-solid fa-circle-up fa-fw"></i>
+                </a>
+            </div>
+
+            <!-- Segunda linha do rodapé -->
+            <div class="footer-bottom">
+
+                <div>
+                    <h4>Redes Sociais:</h4>
+                    <ul>
+                        <li>
+                            <a href="https://facebook.com/FrontEnd" target="_blank">
+                                <i class="fa-brands fa-square-facebook fa-fw"></i>
+                                <span>FaceBook</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/FrontEnd" target="_blank">
+                                <i class="fa-brands fa-square-twitter fa-fw"></i>
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/FrontEnd" target="_blank">
+                                <i class="fa-brands fa-square-github fa-fw"></i>
+                                <span>GitHub.com</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Links rápidos:</h4>
+                    <ul>
+                        <li>
+                            <a href="/about">
+                                <i class="fa-solid fa-file-code fa-fw"></i>
+                                <span>Sobre o site</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/about">
+                                <i class="fa-solid fa-laptop-code fa-fw"></i>
+                                <span>Quem somos</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/about">
+                                <i class="fa-solid fa-user-lock fa-fw"></i>
+                                <span>Privacidade</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </footer>
+
+        <hr class="nbsp">
+
+    </div>
+    <!-- Fim do WRAP -->
+
+    <!-- Carga do JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="/index.js"></script>
-    
+
 </body>
+
 </html>
