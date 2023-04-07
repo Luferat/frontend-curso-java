@@ -22,6 +22,15 @@
  **/
 
 /**
+ * Algumas configurações do aplicativo.
+ * Dica: você pode acrescentar novas configurações aqui se precisar.
+ **/
+var app = {
+    siteName: 'Futikeiros',
+    siteSlogan: 'Programando para o futuro'
+}
+
+/**
  * jQuery → Quando o documento estiver pronto, executa a função principal,
  * 'runApp()'.
  * 
@@ -56,6 +65,36 @@ function myApp() {
      **/
     loadpage('home')
 
+    /**
+     * jQuery → Monitora cliques em elementos '<a>' que , se ocorre, chama a função 
+     * routerLink().
+     **/
+    $(document).on('click', 'a', routerLink)
+
+}
+
+/**
+ * Função que processa o clique em um link.
+ **/
+function routerLink() {
+
+    // Obtém o valor do atributo 'href' do elemento clicado.
+    var href = $(this).attr('href').trim().toLowerCase()
+
+    // Detecta clique em links externos e âncoras (#).
+    if (
+        href.substring(0, 7) == 'http://' ||
+        href.substring(0, 8) == 'https://' ||
+        href.substring(0, 1) == '#'
+    )
+        // Devolve o controle para o HTML.
+        return true
+
+    // Exibe a página da rota clicada.
+    loadpage(href)
+
+    // Bloqueia o funcionamento normal do link.
+    return false
 }
 
 /**
@@ -130,10 +169,23 @@ function loadpage(page) {
         .done((data) => {
 
             /**
-             * Obtém os dados da requisição, no caso, o conteúdo do componente 
-             * HTML da página e o exibe no elemento SPA (tag <main>).
+             * jQuery → Carrega o CSS da página solicitada na "index.html"
+             * principal.
+             **/
+            $('#pageCSS').attr('href', path.css)
+
+            /**
+             * jQuery → Obtém os dados da requisição, no caso, o conteúdo do 
+             * componente HTML da página e o exibe no elemento SPA → <main>.
              **/
             $('main').html(data)
+
+            /**
+             * jQuery → Obtém o código JavaScript da página, carrega na memória
+             * e "executa".
+             **/
+            $.getScript(path.js)
+
         })
 
         /**
@@ -154,5 +206,57 @@ function loadpage(page) {
              */
             console.error(error)
         })
+
+    /**
+    * Rola a tela para o início, útil para links no final da página.
+    * Referências:
+    *  • https://www.w3schools.com/jsref/met_win_scrollto.asp
+    **/
+    window.scrollTo(0, 0);
+
+    /**
+     * Atualiza URL da página com o endereço da rota:
+     * Referências:
+     *  • https://developer.mozilla.org/en-US/docs/Web/API/History/pushState
+     **/
+    window.history.pushState({}, '', page);
+
+}
+
+/**
+ * Muda o título da página → <title></title>
+ * 
+ * Instruções:
+ * Em cada arquivo "index.js" de cada página, inclua uma chamada para esta 
+ * função, passando como parâmetro o título que deve aparecer.
+ * 
+ * Quando o parâmetro estiver vazio (DEFAULT) o título será:
+ *  • app.sitename - app.siteslogan
+ * Quando o parâmetro for informado, o título será:
+ *  • app.sitename - parâmetro
+ * 
+ **/
+function changeTitle(title = '') {
+
+    /**
+     * Define o título padrão da página.
+     */
+    let pageTitle = app.siteName + ' - '
+
+    /**
+     * Se não foi definido um título para a página, 
+     * usa o slogan.
+     **/
+    if (title == '') pageTitle += app.siteSlogan
+
+    /**
+     * Se foi definido um título, usa-o.
+     */
+    else pageTitle += title
+
+    /**
+     * Escreve o novo título na tag <title></title>.
+     */
+    $('title').html(pageTitle)
 
 }
