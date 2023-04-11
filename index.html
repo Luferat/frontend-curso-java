@@ -1,150 +1,35 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <!--
-        Caminho base.
-        Define o caminho absoluto dos documentos e links do site.
-        Este camiho será alterado conforme a plataforma de hospedagem.
-    -->
-    <base href="/">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Site para apresentação dos conceitos de front-end do curso de Java.">
-    <meta name="author" descrition="André Luferat &lt;andre@luferat.net&gt;">
-    <meta name="keywords" description="JavaScript, HTML5, CSS3, semântica, mobile-first, responsividade, api, rest">
-    <link rel="stylesheet" href="index.css">
-    
-    <!-- Carrega o CSS específico de cada página -->
-    <link rel="stylesheet" href="" id="pageCSS">
-    
-    <link rel="shortcut icon" href="img/favicon.alfa.png">
-    <title>FrontEndeiros</title>
-</head>
-
-<body>
-
-    <!-- WRAP -->
-    <div id="wrap">
-
-        <!-- Âncora para o topo da página → #top -->
-        <a id="top"></a>
-
-        <!-- Cabeçalho usando Font Awesome como ícone -->
-        <header>
-            <a href="home"><i class="fa-solid fa-laptop-code fa-fw"></i></a>
-            <h1>FrontEndeiros<small>Programando para o futuro</small></h1>
-        </header>
-
-        <!-- Menu -->
-        <nav>
-            <!-- Item de menu -->
-            <a href="home">
-
-                <!-- Ícone do item do menu -->
-                <i class="fa-solid fa-house fa-fw"></i>
-
-                <!-- Label do item do menu -->
-                <span>Início</span>
-            </a>
-
-            <!-- Os outros itens seguem o mesmo padrão acima -->
-            <a href="contacts">
-                <i class="fa-solid fa-headset fa-fw"></i>
-                <span>Contatos</span>
-            </a>
-            <a href="about">
-                <i class="fa-solid fa-circle-info fa-fw"></i>
-                <span>Sobre</span>
-            </a>
-
-            <a href="user">
-                <i class="fa-solid fa-user fa-fw"></i>
-                <span>Login</span>
-            </a>
-        </nav>
-
-        <!-- Conteúdo principal -->
-        <main></main>
-
-        <!-- Rodapé -->
-        <footer>
-
-            <!-- Primeira linha do rodapé -->
-            <div class="footer-top">
-                <a href="home">
-                    <i class="fa-solid fa-house fa-fw"></i>
-                </a>
-                <div>&copy; 2023 Joca da Silva</div>
-                <a href="#top">
-                    <i class="fa-solid fa-circle-up fa-fw"></i>
-                </a>
-            </div>
-
-            <!-- Segunda linha do rodapé -->
-            <div class="footer-bottom">
-
-                <div>
-                    <h4>Redes Sociais:</h4>
-                    <ul>
-                        <li>
-                            <a href="HTTPS://facebook.com/FrontEnd" target="_blank">
-                                <i class="fa-brands fa-square-facebook fa-fw"></i>
-                                <span>FaceBook</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com/FrontEnd" target="_blank">
-                                <i class="fa-brands fa-square-twitter fa-fw"></i>
-                                <span>Twitter</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/FrontEnd" target="_blank">
-                                <i class="fa-brands fa-square-github fa-fw"></i>
-                                <span>GitHub.com</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4>Links rápidos:</h4>
-                    <ul>
-                        <li>
-                            <a href="about">
-                                <i class="fa-solid fa-file-code fa-fw"></i>
-                                <span>Sobre o site</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="about">
-                                <i class="fa-solid fa-laptop-code fa-fw"></i>
-                                <span>Quem somos</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="policies">
-                                <i class="fa-solid fa-user-lock fa-fw"></i>
-                                <span>Privacidade</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-
-        </footer>
-
-        <hr class="nbsp">
-
-    </div>
-    <!-- Fim do WRAP -->
-
-    <!-- Carga do JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="index.js"></script>
-
-</body>
-
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      const nav = `<a href="/">Home</a> | 
+                   <a href="/about">About</a> | 
+                   <a href="/contact">Contact</a>`;
+      const routes = {
+        "/": `<h1>Home</h1>${nav}<p>Welcome home!</p>`,
+        "/about": `<h1>About</h1>${nav}<p>This is a tiny SPA</p>`,
+      };
+      const render = path => {
+        document.querySelector("#app")
+          .innerHTML = routes[path] || `<h1>404</h1>${nav}`
+        ;
+        document.querySelectorAll('[href^="/"]').forEach(el => 
+          el.addEventListener("click", evt => {
+            evt.preventDefault();
+            const {pathname: path} = new URL(evt.target.href);
+            window.history.pushState({path}, path, path);
+            render(path);
+          })
+        );
+      };
+      window.addEventListener("popstate", e =>
+        render(new URL(window.location.href).pathname)
+      );
+      render("/");
+    </script>
+  </body>
 </html>
