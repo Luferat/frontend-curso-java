@@ -26,61 +26,26 @@
  * Dica: você pode acrescentar novas configurações aqui se precisar.
  **/
 var app = {
-    siteName: 'Futikeiros',
+    siteName: 'FrontEndeiros',
     siteSlogan: 'Programando para o futuro'
 }
 
-/**
- * jQuery → Quando o documento estiver pronto, executa a função principal,
- * 'runApp()'.
- * 
- * Referências:
- *  • https://www.w3schools.com/jquery/jquery_syntax.asp
- **/
+// jQuery → Quando o documento estiver pronto, executa a função principal.
 $(document).ready(myApp)
 
-/**
- * Este é o aplicativo principal, executado logo após a carga dos documentos
- * estátivos (HTML e CSS) no navegador.
- * Aqui incluimos  as chamadas de todas as funções de inicialização e o 
- * monitoramento dos eventos do aplicativo.
- *
- * NOTA! 
- * Um aplicativo é uma função, um bloco de código que fica armazenado na 
- * memória do dispositivo e será executado quando for "chamado" (invocado)
- * pelo nome.
- * 
- * Referências:
- *  • https://www.w3schools.com/js/js_functions.asp
- **/
+// Aplicativo principal.
 function myApp() {
 
-    /**
-     * Faz a carga da página inicial do SPA. A página a ser carregada na 
-     * inicialização é definida pela string parâmetro e corresponde a uma
-     * das subpastas de "/pages".
-     * 
-     * Posteriormente, esta chamada à "loadpage()" será otimizada para melhorar
-     * o paradigma "SEO Friendly" do aplicativo.
-     **/
-    // loadpage('home')
+    // Extrai a rota da página da URL e armazena em 'path'.
+    var path = window.location.pathname.split('/')[1]
 
-    /**
-      * Obtém nome da página que está sendo acessada, do 'localStorage'.
-      * Estude '/404.html' para mais detalhes.
-      **/
-    // const path = localStorage.path
-    if (localStorage.path != undefined) {                     // Se cliente está acessando uma página específica...
-        loadpage(localStorage.path); // Acessa a página solicitada.
-        localStorage.path = undefined   // Limpa o 'localStorage'.
-    } else {                        // Se não solicitou uma página específica...
-        loadpage('home');           // Carrega a página inicial.
-    }
+    // Se 'path' é vazia, 'path' é a página inicial.
+    if (path == '') path = 'home'
 
-    /**
-     * jQuery → Monitora cliques em elementos '<a>' que , se ocorre, chama a função 
-     * routerLink().
-     **/
+    // Carrega a página solicitada pela rota em 'path'.
+    loadPage(path)
+
+    // Ao clicar em qualquer '<a></a>', chama 'routerLink()'.
     $(document).on('click', 'a', routerLink)
 
 }
@@ -124,15 +89,10 @@ function routerLink() {
         // Devolve o controle para o HTML.
         return true
 
-    /**
-     * Carrega a rota solicitada.
-     **/
-    loadpage(href)
+    // Carrega a rota solicitada.
+    loadPage(href)
 
-    /**
-     * Encerra o processamento do link sem fazer mais nada. 'return false' 
-     * bloqueia a ação normal do navegador sobre um link.
-     **/
+    // Encerra o processamento do link sem fazer mais nada.
     return false
 }
 
@@ -155,9 +115,9 @@ function routerLink() {
  *  4. Crie os links para a nova página, apontando-os para a rota desta, por 
  *     exemplo: <a href="mypage">Minha página</a>
  *  5. Já para carregar esta página no SPA pelo JavaScript, comandamos 
- *     "loadpage('mypage')", por exemplo.
+ *     "loadPage('mypage')", por exemplo.
  **/
-function loadpage(page) {
+function loadPage(page, updateURL = true) {
 
     /*
      * Monta os caminhos (path) para os componentes da página solicitada, 
@@ -199,7 +159,7 @@ function loadpage(page) {
         /**
          * Quando ocorrer um "response", os dados obtidos serão carregados na 
          * memória do aplicativo e estarão disponíveis para uso deste.
-         * Neste caso, criamos uma função "sem nome" ()=>{} que obtém os dados
+         * Neste caso, criamos uma função "sem nome" (data)=>{} que obtém os dados
          * e armazena em "data" para uso posterior.
          * 
          * Referências:
@@ -207,43 +167,25 @@ function loadpage(page) {
          **/
         .done((data) => {
 
-            /**
-             * jQuery → Carrega o CSS da página solicitada na "index.html"
-             * principal.
-             **/
-            $('#pageCSS').attr('href', path.css)
+            // Se o documento carregado NÃO é uma página de conteúdo...
+            if (data.trim().substring(0, 9) != '<article>')
 
-            /**
-             * jQuery → Obtém os dados da requisição, no caso, o conteúdo do 
-             * componente HTML da página e o exibe no elemento SPA → <main>.
-             **/
-            $('main').html(data)
+                // Carrega a página de erro 404 sem atualizar a rota.
+                loadPage('e404', false)
 
-            /**
-             * jQuery → Obtém o código JavaScript da página, carrega na memória
-             * e "executa".
-             **/
-            $.getScript(path.js)
+            // Se o documento é uma página de conteúdo...
+            else {
 
-        })
+                // jQuery - Instala o CSS da página na 'index.html'.
+                $('#pageCSS').attr('href', path.css)
 
-        /**
-         * Caso o "request" falhe, por conta de o documento solicitado não 
-         * existir, carrega a página de erro "e404" ('/pages/e404') no SPA.
-         **/
-        .fail((error) => {
+                // jQuery - Carrega o HTML no elemento <main></main>.
+                $('main').html(data)
 
-            /**
-             * Carrega a página de erro 404 no SPA.
-             */
-            loadpage('e404')
+                // jQuery - Carrega e executa o JavaScript.
+                $.getScript(path.js)
+            }
 
-            /**
-             * Exibe a mensagem de erro que ocorreu no console, para depuração.
-             * Opcionalmente, esta linha poderá/deverá ser removida no momento
-             * do deploy (publicação) da versão final.
-             */
-            console.error(error)
         })
 
     /**
@@ -258,7 +200,8 @@ function loadpage(page) {
      * Referências:
      *  • https://developer.mozilla.org/en-US/docs/Web/API/History/pushState
      **/
-    window.history.pushState({}, '', page);
+    if (updateURL)
+        window.history.pushState({}, '', page);
 
 }
 
