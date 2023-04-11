@@ -150,7 +150,7 @@ function routerLink() {
  *  5. Já para carregar esta página no SPA pelo JavaScript, comandamos 
  *     "loadpage('mypage')", por exemplo.
  **/
-function loadpage(page) {
+function loadpage(page, updateURL = true) {
 
     /*
      * Monta os caminhos (path) para os componentes da página solicitada, 
@@ -233,7 +233,8 @@ function loadpage(page) {
      * Referências:
      *  • https://developer.mozilla.org/en-US/docs/Web/API/History/pushState
      **/
-    window.history.pushState({}, '', page);
+    if(updateURL)
+        window.history.pushState({}, '', page);
 
 }
 
