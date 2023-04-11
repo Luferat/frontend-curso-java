@@ -36,6 +36,12 @@ $(document).ready(myApp)
 // Aplicativo principal.
 function myApp() {
 
+    /**
+     * IMPORTANTE!
+     * Para que o roteamento funcione corretamente no "live server", é 
+     * necessário que erros 404 abram a página "index.html".
+     **/
+
     // Extrai a rota da página da URL e armazena em 'path'.
     var path = window.location.pathname.split('/')[1]
 
