@@ -63,7 +63,19 @@ function myApp() {
      * Posteriormente, esta chamada à "loadpage()" será otimizada para melhorar
      * o paradigma "SEO Friendly" do aplicativo.
      **/
-    loadpage('home')
+    // loadpage('home')
+
+    /**
+      * Obtém nome da página que está sendo acessada, do 'localStorage'.
+      * Estude '/404.html' para mais detalhes.
+      **/
+    // const path = localStorage.path
+    if (localStorage.path != undefined) {                     // Se cliente está acessando uma página específica...
+        loadpage(localStorage.path); // Acessa a página solicitada.
+        localStorage.path = undefined   // Limpa o 'localStorage'.
+    } else {                        // Se não solicitou uma página específica...
+        loadpage('home');           // Carrega a página inicial.
+    }
 
     /**
      * jQuery → Monitora cliques em elementos '<a>' que , se ocorre, chama a função 
@@ -89,7 +101,7 @@ function routerLink() {
      *  • https://www.w3schools.com/jquery/jquery_syntax.asp
      **/
     var href = $(this).attr('href').trim().toLowerCase()
- 
+
     /**
      * Se clicou em um link externo (http://... OU https://...) ou em uma 
      * âncora (#...),devolve o controle da página para o navegador (return true) 
