@@ -15,19 +15,20 @@ function myContacts() {
 
 function sendContact(ev) {
 
+    ev.preventDefault()
+
+    console.log()
+
     var formJSON = {}
-    console.log('++++', ev.target)
     const formData = new FormData(ev.target);
-    console.log('>>>', formData)
-    for (const [key, value] of formData) {
+
+    formData.forEach((value, key) => {
         formJSON[key] = value
-    }
+    })
 
-    formJSON = JSON.stringify(formJSON)
+    $.post('http://localhost:3000/contacts', formJSON)
+        .done((data) => {
+            console.log(data)
+        })
 
-    console.log(formJSON)
-
-    // console.log(JSON.parse(formJSON))
-
-    return false
 }

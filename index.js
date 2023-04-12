@@ -55,24 +55,25 @@ $(document).ready(myApp)
  **/
 function myApp() {
 
-    /**
-     * IMPORTANTE!
-     * Para que o roteamento funcione corretamente no "live server", é 
-     * necessário que erros 404 abram a página "index.html".
-     **/
+    // Verifica se o 'localStorage' contém uma rota.
+    if (localStorage.path == undefined) {
 
-    // Extrai a rota da página da URL e armazena em 'path'.
-    var path = window.location.pathname.split('/')[1]
+        // Se não contém, aponta a rota 'home'.
+        localStorage.path = 'home'
+    }
 
-    // Se 'path' é vazia, 'path' é a página inicial.
-    if (path == '') path = 'home'
+    // Armazena a rota obtida em 'path'.        
+    var path = localStorage.path
 
-    // Carrega a página solicitada pela rota em 'path'.
+    // Apaga o 'localStorage', liberando o recurso.
+    delete localStorage.path
+
+    // Carrega a página solicitada pela rota.
     loadpage(path)
 
     /**
-     * jQuery → Monitora cliques em elementos '<a>' que , se ocorre, chama a função 
-     * routerLink().
+     * jQuery → Monitora cliques em elementos '<a>' que, se ocorre, chama a 
+     * função routerLink().
      **/
     $(document).on('click', 'a', routerLink)
 
@@ -112,6 +113,8 @@ function routerLink() {
     if (
         href.substring(0, 7) == 'http://' ||
         href.substring(0, 8) == 'https://' ||
+        href.substring(0, 4) == 'tel:' ||
+        href.substring(0, 7) == 'mailto:' ||
         href.substring(0, 1) == '#'
     )
         // Devolve o controle para o HTML.
@@ -200,7 +203,13 @@ function loadpage(page, updateURL = true) {
          **/
         .done((data) => {
 
-            // Se o documento carregado NÃO é uma página de conteúdo...
+            /**
+             * Se o documento carregado NÃO é uma página de conteúdo...
+             * 
+             * Isso só será efetivamente funcional se o conteúdo da página para
+             * qual a rota aponta, realmente iniciar com a tag '<article>', 
+             * portanto, tenha esse cuidado ao criar novas páginas para o app.
+             **/ 
             if (data.trim().substring(0, 9) != '<article>')
 
                 // Carrega a página de erro 404 sem atualizar a rota.
