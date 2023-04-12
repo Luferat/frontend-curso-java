@@ -233,8 +233,7 @@ function loadpage(page, updateURL = true) {
      * Referências:
      *  • https://developer.mozilla.org/en-US/docs/Web/API/History/pushState
      **/
-    if(updateURL)
-        window.history.pushState({}, '', page);
+    if (updateURL) window.history.pushState({}, '', page);
 
 }
 
