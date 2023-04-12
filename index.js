@@ -26,7 +26,7 @@
  * Dica: você pode acrescentar novas configurações aqui se precisar.
  **/
 var app = {
-    siteName: 'Futikeiros',
+    siteName: 'FrontEndeiros',
     siteSlogan: 'Programando para o futuro'
 }
 
