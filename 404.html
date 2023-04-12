@@ -1,3 +1,15 @@
 <script>
-    window.location.href = '../';
+    /**
+     * Esta página será executada se o navegador acessar um conteúdo 
+     * "fisicamente" inexistente no site, pr exemplo, uma rota.
+     **/
+
+    // Extrai a rota da URL.
+    const path = window.location.pathname.split('/')[1]
+
+    // Guarda a rota no 'localStorage'.
+    localStorage.path = path
+
+    // Carrega a 'index' do site.
+    window.location.href = '../'
 </script>
