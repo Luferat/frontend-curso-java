@@ -16,18 +16,25 @@ function myContacts() {
 function sendContact(ev) {
 
     var formJSON = {}
-    console.log('++++', ev.target)
+
     const formData = new FormData(ev.target);
-    console.log('>>>', formData)
-    for (const [key, value] of formData) {
+
+    formData.forEach((value, key) => {
         formJSON[key] = value
-    }
+    })
 
-    formJSON = JSON.stringify(formJSON)
-
-    console.log(formJSON)
-
-    // console.log(JSON.parse(formJSON))
+    $.post('http://localhost:3000/contacts', formJSON)
+    .done((data) => {
+        if(data.status == 'success') {
+            var firstName = formJSON.name.split(' ')[0]
+            var feedback = `
+                <h3>Olá ${firstName}!</h3>
+                <p>Seu contato foi enviado com sucesso.</p>
+                <p>Obrigado...</p>
+            `
+            $('#cForm').html(feedback)
+        }
+    })
 
     return false
 }
