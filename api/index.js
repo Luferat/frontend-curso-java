@@ -49,53 +49,52 @@ server.use((req, res, next) => {
 
     // Inclui a data no 'body' da requisição.
     req.body.date = sysdate
+
+    // Inclui o status do contato.
+    req.body.status = 'received'
+
+    /**
+     * Renderiza a 'view' do json-server.
+     * Isso altera a saída padrão do json-server para customizá-la.
+     **/
+    router.render = (req, res, next) => {
+
+      // Se o novo contato foi gravado com sucesso...
+      if (res.locals.data.id > 0) {
+
+        /** 
+         * Responde com o JSON.
+         * O importante aqui é { "status" : "success" }, o restante é opcional.
+         **/
+        res.json({
+          status: 'success',
+          data: {
+            message: 'Contato salvo',
+            HTTPcode: res.statusCode,
+            id: res.locals.data.id
+          }
+        })
+
+        // Se houve falha ao gravar contato...
+      } else {
+
+        /** 
+         * Responde com o JSON.
+         * O importante aqui é { "status" : "error" }, o restante é opcional.
+         **/
+        res.json({
+          status: 'error',
+          data: {
+            message: 'Falha ao gravar contato'
+          }
+        })
+      }
+    }
   }
 
   // Encerra 'server.use()', gravando as alterações.
   next()
 })
-
-/**
- * Renderiza a 'view' do json-server.
- * Isso altera a saída padrão do json-server para customizá-la.
- **/
-router.render = (req, res, next) => {
-
-  // Se um novo contato foi enviado...
-  if (req.method == 'POST' && req.path == '/contacts') {
-
-    // Se o novo contato foi gravado com sucesso...
-    if (res.locals.data.id > 0) {
-
-      /** 
-       * Responde com o JSON.
-       * O importante aqui é { "status" : "success" }, o restante é opcional.
-       **/
-      res.json({
-        status: 'success',
-        data: {
-          message: 'Contato salvo',
-          HTTPcode: res.statusCode,
-          id: res.locals.data.id
-        }
-      })
-
-      // Se houve falha ao gravar contato...
-    } else {
-
-      /** 
-       * Responde com o JSON.
-       * O importante aqui é { "status" : "error" }, o restante é opcional.
-       **/
-      res.json({
-        status: 'error',
-        data: {
-          message: 'Falha ao gravar contato'
-        }
-      })
-    }
-  }
-}
 
 // Executa a API do json-server.
 server.use(router)

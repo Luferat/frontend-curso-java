@@ -19,11 +19,11 @@ function myContacts() {
     changeTitle('Faça contato')
 
     /**
-     * Observer do formulário de contatos.
+     * Promise do formulário de contatos.
      * Quando o formulário for enviado (onsubmit), executa a função
      * sendContact().
      */
-    $(document).on('submit', '#cForm', sendContact)
+    $('#cForm').submit(sendContact)
 
 }
 
@@ -49,7 +49,18 @@ function sendContact(ev) {
 
         // Atualiza o campo sanitizado, no formulário.
         $('#' + key).val(formJSON[key])
+
     })
+
+    // Verifica se tem algum campo vazio.
+    for (const key in formJSON) {
+
+        // Se algum campo está vazio...
+        if (formJSON[key] == '')
+
+            // Sai de sendContact() sem fazer nada.
+            return false
+    }
 
     // Envia os dados do formulário para a API.
     $.post(app.apiContactsURL, formJSON)
@@ -69,8 +80,15 @@ function sendContact(ev) {
                     <p><em><code>${data.data.message}</code></em></p>
                 `
             }
+
+            // Limpar campos do formulário.
+            for (const key in formJSON)
+                $('#' + key).val('')
+
+            // Mostra feedback.
             $('#cForm').html(feedback)
         })
 
+    // Sai da função sendContact() sem fazer mais nada.
     return false
 }

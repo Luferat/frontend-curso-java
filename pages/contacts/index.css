@@ -61,3 +61,39 @@
     background-image: linear-gradient(rgb(172, 172, 172), rgb(76, 76, 76));
     pointer-events: none;
 }
+
+nav.contacts {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-bottom: 1.5rem;
+}
+
+nav.contacts a {
+    font-size: 4rem;
+}
+
+nav.contacts i[class~=fa-square-whatsapp] {
+    color: #128c7e;
+}
+
+nav.contacts i[class~=fa-square-phone] {
+    color: #666;
+}
+
+nav.contacts i[class~=fa-square-envelope] {
+    color: orangered;
+}
+
+nav.contacts i[class~=fa-square-facebook] {
+    color: #1877f2;
+}
+
+nav.contacts i[class~=fa-square-github] {
+    color: #6e5494;
+}
+
+nav.contacts i[class~=fa-square-instagram] {
+    color: #405de6;
+}
