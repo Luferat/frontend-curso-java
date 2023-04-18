@@ -14,11 +14,18 @@ function myHome() {
      **/
     changeTitle()
 
+    /**
+     * Obtém todos os artigos do site, orneados pela data, descrecente.
+     */
     $.get(app.apiArticlesURL)
+
+        // Armazena os artigos obtidos em "data".
         .done((data) => {
 
+            // Extrai cada um dos artigos para o objeto "art".
             data.forEach((art) => {
 
+                // Exibe os dados.
                 console.log(
                     art.id,
                     art.thumbnail,

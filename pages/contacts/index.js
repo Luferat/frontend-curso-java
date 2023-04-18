@@ -64,16 +64,30 @@ function sendContact(ev) {
 
     // Envia os dados do formulário para a API.
     $.post(app.apiContactsURL, formJSON)
+
+        // Ao concluir o envio, armazena o retorno da API em "data".
         .done((data) => {
+
+            // Variável para armazenar a mensagem de retorno para o usuário.
             var feedback;
+
+            // Se a API respondeu com sucesso...
             if (data.status == 'success') {
+
+                // Extrai o primeiro nome do usuário.
                 var firstName = formJSON.name.split(' ')[0]
+
+                // Gera a mensagem de agradecimento.
                 feedback = `
                     <h3>Olá ${firstName}!</h3>
                     <p>Seu contato foi enviado com sucesso.</p>
                     <p>Obrigado...</p>
                 `
+
+                // Se a API respondeu com erro...
             } else {
+
+                // Gera a mensagem de agradecimento.
                 feedback = `
                     <h3>Oooops!</h3>
                     <p>Não foi possível enviar seu contato. Ocorreu uma falha no servidor.</p>
@@ -81,11 +95,11 @@ function sendContact(ev) {
                 `
             }
 
-            // Limpar campos do formulário.
+            // Limpa campos do formulário.
             for (const key in formJSON)
                 $('#' + key).val('')
 
-            // Mostra feedback.
+            // Substitui conteúdo do formulário pela mensagem de retorno.
             $('#cForm').html(feedback)
         })
 

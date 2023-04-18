@@ -4,14 +4,14 @@ Aplicativo front-end usando HTML, CSS e JavaScript do grupo 2023.1 de Java.
 ## Preparando o Aplicativo
 À partir de agora, nosso aplicativo depende de um back-end, de uma API que ainda não temos, que será "simulada" pelo "json-server". Além disso, estamos usando o "live-server" que tem o recurso de "live-reload" que reinicia o servidor sempre que fazemos mudanças nos códigos do aplicativo. Isso é interessante, mas, quando nosso código se torna mais dinâmico, justamente por conta do "json-server", essa característica vai atrapalhar nosso desenvolvimento.
 
-Vamos então, fazer alguns ajustes no aplicativo para intergrar a API "fake" e também um novo servidor Web.
+Vamos então, fazer alguns ajustes no aplicativo para integrar a API "fake" e também um novo servidor Web.
 
 ### SSL Self Signed
-Quando você comandar "npm install ..." e o prompt simplesmente travar, cancele o comando teclando [Ctrl]+[C] e comande:
+Quando você comandar `npm install ...` e o prompt simplesmente travar, cancele o comando teclando [Ctrl]+[C] e comande:
 
 ```npm set strict-ssl false```
 
-Isso desabilita o protocolo HTTPS para download de pacotes do "Node.js".
+Isso desabilita o protocolo HTTPS para download de pacotes do "Node.js" e você pode tentar `npm install ...` novamente.
 
 ### json-server
 Instalamos o "json-server" dentro da pasta "/api" do aplicativo, então, sempre que baixar uma nova versão deste app, será necessário reinstalar o "json-server". Acesse a pasta "/api" pelo "Node.js command prompt" e comande:
@@ -21,6 +21,9 @@ Instalamos o "json-server" dentro da pasta "/api" do aplicativo, então, sempre 
 Para rodar a API, comande neste mesmo "Node.js command prompt", dentro da pasta "/api":
 
 ```node index.js```
+
+>**Lembre-se!**
+> Sempre que fizer alterações na API, principalmente no "middleware" (/api/index.js) e no "db.json", por exemplo, adicionando ou removendo uma "subcoleção", é necessário reiniciar o "json-server".
 
 ### http-server
 Também instalamos o "http-server" para substituir a extensão "live server" do VSCode. Para instalar este pacote, comande:
