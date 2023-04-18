@@ -1,3 +1,90 @@
 {
-  "contacts": [    ]
+  "contacts": [
+    {
+      "name": "Rudinilda",
+      "email": "maru@cleu.com",
+      "subject": "Teste de contato",
+      "message": "Mensagem de contato",
+      "date": "2023-04-17 21:05:24",
+      "status": "received",
+      "id": 1
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "date": "2023-04-17 17:45:24",
+      "name": "Joca da Silva",
+      "email": "joca@silva.com",
+      "photo": "https://randomuser.me/api/portraits/men/3.jpg",
+      "bio": "Programador, escultor, pintor, contornador e executor",
+      "social": "",
+      "type": "author",
+      "status": "on"
+    },
+    {
+      "id": 2,
+      "date": "2023-04-17 17:50:24",
+      "name": "Maricleuza Siriliano",
+      "email": "mari@cleuza.com.br",
+      "photo": "https://randomuser.me/api/portraits/women/23.jpg",
+      "bio": "Biografa, stenografa, fotografa e farofa",
+      "social": "",
+      "type": "user",
+      "status": "on"
+    },
+    {
+      "date": "2023-04-17 17:55:24",
+      "name": "Hermenildo Sorozine",
+      "email": "hermesoro@gmail.com",
+      "photo": "https://randomuser.me/api/portraits/men/26.jpg",
+      "bio": "Cantor, compositor, expositor, dispositor e instrutor.",
+      "social": "",
+      "type": "user",
+      "status": "on",
+      "id": 3
+    }
+  ],
+  "articles": [
+    {
+      "author": 1,
+      "date": "2023-04-17 20:24:00",
+      "title": "Por que as fuinhas gritam",
+      "thumbnail": "https://picsum.photos/200",
+      "resume": "Aprenda a fazer alguma coisa que deve ser feita por quem sabe.",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean faucibus justo nibh, sed rutrum neque feugiat ac.",
+      "views": 0,
+      "status": "on",
+      "id": 1
+    },
+    {
+      "author": 1,
+      "date": "2023-04-17 20:45:00",
+      "title": "Gatos que latem e cães que miam",
+      "thumbnail": "https://picsum.photos/201",
+      "resume": "Desde que se sabe, é assim que é, para sempre ser.",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean faucibus justo nibh, sed rutrum neque feugiat ac.",
+      "views": 0,
+      "status": "on",
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "author": "2",
+      "date": "2023-04-17 20:47:00",
+      "article": 1,
+      "content": "Comentando comentários comentáveis",
+      "status": "on",
+      "id": 1
+    },
+    {
+      "author": "1",
+      "date": "2023-04-17 20:49:00",
+      "article": 1,
+      "content": "Não é possível que este comentário esteja comentando.",
+      "status": "on",
+      "id": 2
+    }
+  ]
 }

@@ -28,7 +28,8 @@
 var app = {
     siteName: 'FrontEndeiros',
     siteSlogan: 'Programando para o futuro',
-    apiContactsURL: 'http://localhost:3000/contacts'
+    apiContactsURL: 'http://localhost:3000/contacts',
+    apiArticlesURL: 'http://localhost:3000/articles?_sort=date&_order=desc'
 }
 
 /**
