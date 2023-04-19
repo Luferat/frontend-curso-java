@@ -25,11 +25,14 @@
  * Algumas configurações do aplicativo.
  * Dica: você pode acrescentar novas configurações aqui se precisar.
  **/
+var apiBaseURL = 'http://localhost:3000/'
 var app = {
     siteName: 'FrontEndeiros',
     siteSlogan: 'Programando para o futuro',
-    apiContactsURL: 'http://localhost:3000/contacts',
-    apiArticlesURL: 'http://localhost:3000/articles?_sort=date&_order=desc'
+    apiContactsURL: apiBaseURL + 'contacts',
+    apiArticlesURL: apiBaseURL + 'articles?_sort=date&_order=desc',
+    apiArticleURL: apiBaseURL + 'articles/',
+    apiUserURL: apiBaseURL + 'users/'
 }
 
 /**
@@ -284,4 +287,31 @@ function changeTitle(title = '') {
      */
     $('title').html(pageTitle)
 
+}
+
+/**
+ * Calcula a idade com base na data (system date).
+ **/
+function getAge(sysDate) {
+    // Obtendo partes da data atual.
+    const today = new Date()
+    const tYear = today.getFullYear()
+    const tMonth = today.getMonth() + 1
+    const tDay = today.getDate()
+
+    // Obtebdo partes da data original.
+    const parts = sysDate.split('-')
+    const pYear = parts[0]
+    const pMonth = parts[1]
+    const pDay = parts[2]
+
+    // Calcula a idade pelo ano.
+    var age = tYear - pYear
+
+    // Verificar o mês e o dia.
+    if(pMonth > tMonth) age --
+    else if(pMonth == tMonth && pDay > tDay) age --
+
+    // Retorna a idade.
+    return age
 }

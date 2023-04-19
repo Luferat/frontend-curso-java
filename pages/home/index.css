@@ -1,1 +1,60 @@
 /* Folhas de estilo de home. */
+
+.art-item {
+    background-color: rgb(220, 220, 220);
+    border-radius: .5rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.art-item:hover {
+    background-color: rgb(183, 183, 183);
+}
+
+.art-item img {
+    border-radius: .5rem .5rem 0 0;
+    width: 100%;
+}
+
+.art-item h3 {
+    margin: 0;
+    padding: .25rem 1rem;
+}
+
+.art-item p {
+    margin: 0;
+    padding: 1rem;
+}
+
+@media screen and (min-width: 575px) {
+
+    #artList {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .art-item {
+        width: 48%;
+    }
+    
+}
+
+@media screen and (min-width: 768px) {
+
+    .art-item {
+        width: 100%;
+        display: flex;
+    }
+
+    .art-item img {
+        width: 100px;
+        height: auto;
+        border-radius: .5rem 0 0 .5rem;
+    }
+
+    .art-item h3 {
+        padding: .5rem 1rem 0 1rem;
+    }
+    
+}
