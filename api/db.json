@@ -55,6 +55,10 @@
       "type": "user",
       "status": "on",
       "id": 3
+    },
+    {
+      "nome": "Jocasta",
+      "email": "joca@casta.com"
     }
   ],
   "articles": [
