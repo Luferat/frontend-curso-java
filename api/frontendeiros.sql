@@ -25,7 +25,7 @@ CREATE TABLE contacts (
     email VARCHAR(255) NOT NULL,
     subject VARCHAR(255) NOT NULL,
     message TEXT NOT NULL,
-    status ENUM ('received', 'readed', 'responded', 'deleted') DEFAULT 'received'
+    status ENUM ('received', 'readed', 'responded', 'trashed', 'deleted') DEFAULT 'received'
 );
 
 -- Cria a tabela de usuários → users.
