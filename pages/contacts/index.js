@@ -82,7 +82,7 @@ function sendContact(ev) {
                     <h3>Olá ${firstName}!</h3>
                     <p>Seu contato foi enviado com sucesso.</p>
                     <p>Obrigado...</p>
-                `
+                `;
 
                 // Se a API respondeu com erro...
             } else {
