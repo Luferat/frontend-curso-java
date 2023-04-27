@@ -1,3 +1,11 @@
+/**
+ * Scripts de View
+ * By Luferat
+ * MIT License
+ * 
+ * DEBUG By Jaydee.
+ **/
+
 $(document).ready(myView)
 
 // Inicializa a variável de saída.
@@ -27,6 +35,9 @@ function myView() {
             // Exibe na página.
             $('article').html(article)
 
+            // DEBUG → Evita repetição do artigo.
+            article = ''
+
             // Altera o título da página.
             changeTitle(art.title)
 
@@ -38,7 +49,7 @@ function myView() {
                     author = `
 <div class="art-author">
     <img src="${user.photo}" alt="${user.name}">
-    <h4>${user.name}</h4>
+    <h3>${user.name}</h3>
     <h5>${getAge(user.birth)} anos</h5>
     <p>${user.bio}</p>
 </div>
@@ -47,7 +58,10 @@ function myView() {
                     // Obtém todos os artigos deste autor.
                     $.get(app.apiArticleURL + `?author=${user.id}&_limit=5`)
                         .done((uArt) => {
-                            authorArts += `<ul>`
+                            authorArts += `
+                            <h3><i class="fa-solid fa-plus fa-fw"></i> Artigos</h3>
+                            <ul class="autor-art-list">
+                            `
                             uArt.forEach((data) => {
                                 if (data.id != art.id) {
                                     authorArts += `<li><a href="view" data-id="${data.id}">${data.title}</a></li>`
@@ -55,6 +69,9 @@ function myView() {
                             });
                             authorArts += `</ul>`
                             $('aside').html(author + authorArts)
+
+                            // DEBUG → Evita repetição dos artigos do autor.
+                            authorArts = ''
                         })
                         .fail()
                 })

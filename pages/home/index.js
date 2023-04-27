@@ -19,6 +19,7 @@ function myHome() {
      * Quando clicar em um artigo.
      **/
     $(document).on('click', '.art-item', loadArticle)
+    // $('.art-item').click(loadArticle)
 
     var articleList = '';
 
