@@ -167,6 +167,14 @@ body {
     margin-bottom: .4rem;
 }
 
+#wrap>nav a img {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    margin-bottom: .4rem;
+    border-radius: 50%;
+}
+
 /************/
 /* Conteúdo */
 /************/
@@ -312,6 +320,13 @@ body {
 
     #wrap>nav a i {
         font-size: 1.2rem;
+        margin-bottom: 0;
+        margin-right: .5rem;
+    }
+
+    #wrap>nav a img {
+        width: 1.2rem;
+        height: 1.2rem;
         margin-bottom: 0;
         margin-right: .5rem;
     }

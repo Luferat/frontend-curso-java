@@ -4,6 +4,12 @@
  * MIT License
  **/
 
+// Importa o "core" do Firebase.
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
+
+// Importa o Authentication do Firebase.
+import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signInWithRedirect } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js";
+
 // Configuração do Firebase para o site do prof. Luferat.
 // NÃO USE ESTE CÓDIGO NO SEU APLICATIVO.
 const firebaseConfig = {
@@ -15,32 +21,62 @@ const firebaseConfig = {
     appId: "1:197552479848:web:69018f3bb5b7d65a92e5dd"
 };
 
-// Importa o "core" do Firebase.
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
-
-// Importa o Authentication do Firebase.
-import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js";
-
 // Initializa o Firebase.
 const fbapp = initializeApp(firebaseConfig);
+
+// Inicializa o mecanismo de autenticação.
+const auth = getAuth();
 
 // Especifica o provedor de autenticação.
 const provider = new GoogleAuthProvider();
 
-const auth = getAuth();
-
-// signInWithPopup(auth, provider)
-
+// Observa o status de autenticação do usuário.
 onAuthStateChanged(auth, (user) => {
+    console.log(user)
     if (user) {
         sessionStorage.userData = JSON.stringify({
             name: user.displayName,
             email: user.email,
             photo: user.photoURL,
-            uid: user.uid
+            uid: user.uid,
+            created: user.metadata.createdAt,
+            lastLogin: user.metadata.lastLoginAt 
         })
     } else {
         delete sessionStorage.userData
     }
 });
 
+// Executa a jQuery quando o documento estiver pronto.
+$(document).ready(myFirebase)
+
+function myFirebase() {
+
+    // Detecta cliques no botão de login.
+    $('#navUser').click(login)
+}
+
+// Função que processa cliques no botão login/profile.
+function login() {
+
+    // Se não está logado...
+    if (!sessionStorage.userData) {
+
+        // Faz login usando popup.
+        signInWithPopup(auth, provider)
+
+            // Se logou corretamente.
+            .then(() => {
+
+                // Redireciona para a 'home'.
+                location.href = '/home'
+            })
+
+        // Se está logado..
+    } else
+
+        // Redireciona para 'profile'.
+        location.href = '/profile'
+
+    return false
+}

@@ -60,6 +60,8 @@ $(document).ready(myApp)
  **/
 function myApp() {
 
+    // console.log(sessionStorage.userData)
+
     // Variável com dados do usuário logado.
     var user;
 
@@ -78,7 +80,10 @@ function myApp() {
             <i class="fa-solid fa-user fa-fw"></i>
             <span>Login</span>
         `)
-        $('#navUser').attr('href', 'login')
+        $('#navUser').attr({ 
+            'href': 'home',
+            // 'onclick': 'login()'
+         })
     }
 
     /**
@@ -108,6 +113,8 @@ function myApp() {
      * routerLink().
      **/
     $(document).on('click', 'a', routerLink)
+
+    $('')
 
 }
 
