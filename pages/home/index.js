@@ -64,5 +64,5 @@ function loadArticle() {
     sessionStorage.article = $(this).attr('data-id')
 
     // Carrega a página que exibe artigos → view.
-    loadpage('view')
+    loadPage('view')
 }

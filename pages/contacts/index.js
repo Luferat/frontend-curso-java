@@ -25,6 +25,12 @@ function myContacts() {
      */
     $('#cForm').submit(sendContact)
 
+    $(document).on('mouseover', '.contacts a', efect)
+
+}
+
+function efect() {
+    console.log($(this).children('a'))
 }
 
 /**

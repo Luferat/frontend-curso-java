@@ -60,31 +60,15 @@ $(document).ready(myApp)
  **/
 function myApp() {
 
-    // console.log(sessionStorage.userData)
-
-    // Variável com dados do usuário logado.
-    var user;
-
-    // Se tem usuário logado.
-    if (sessionStorage.userData) {
-
-        // Dados do usuário logado
-        user = JSON.parse(sessionStorage.userData)
-        $('#navUser').html(`
-            <img src="${user.photo}" alt="${user.name}" referrerpolicy="no-referrer">
-            <span>Perfil</span>
-        `)
-        $('#navUser').attr('href', 'profile')
-    } else {
-        $('#navUser').html(`
-            <i class="fa-solid fa-user fa-fw"></i>
-            <span>Login</span>
-        `)
-        $('#navUser').attr({ 
-            'href': 'home',
-            // 'onclick': 'login()'
-         })
-    }
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            $('#navUser').html(`<img src="${user.photoURL}" alt="${user.displayName}" referrerpolicy="no-referrer"><span>Perfil</span>`)
+            $('#navUser').attr('href', 'profile')
+        } else {
+            $('#navUser').html(`<i class="fa-solid fa-user fa-fw"></i><span>Login</span>`)
+            $('#navUser').attr('href', 'login')
+        }
+    });
 
     /**
      * IMPORTANTE!
@@ -106,7 +90,7 @@ function myApp() {
     delete localStorage.path
 
     // Carrega a página solicitada pela rota.
-    loadpage(path)
+    loadPage(path)
 
     /**
      * jQuery → Monitora cliques em elementos '<a>' que , se ocorre, chama a função 
@@ -114,8 +98,10 @@ function myApp() {
      **/
     $(document).on('click', 'a', routerLink)
 
-    $('')
+}
 
+function login() {
+    firebase.auth().signInWithPopup(provider)
 }
 
 /**
@@ -134,6 +120,8 @@ function routerLink() {
      *  • https://www.w3schools.com/jquery/jquery_syntax.asp
      **/
     var href = $(this).attr('href').trim().toLowerCase()
+
+
 
     /**
      * Se clicou em um link externo (http://... OU https://...) ou em uma 
@@ -159,10 +147,15 @@ function routerLink() {
         // Devolve o controle para o HTML.
         return true
 
+    if (href == 'login') {
+        login()
+        return false
+    }
+
     /**
      * Carrega a rota solicitada.
      **/
-    loadpage(href)
+    loadPage(href)
 
     /**
      * Encerra o processamento do link sem fazer mais nada. 'return false' 
@@ -190,9 +183,9 @@ function routerLink() {
  *  4. Crie os links para a nova página, apontando-os para a rota desta, por 
  *     exemplo: <a href="mypage">Minha página</a>
  *  5. Já para carregar esta página no SPA pelo JavaScript, comandamos 
- *     "loadpage('mypage')", por exemplo.
+ *     "loadPage('mypage')", por exemplo.
  **/
-function loadpage(page, updateURL = true) {
+function loadPage(page, updateURL = true) {
 
     /*
      * Monta os caminhos (path) para os componentes da página solicitada, 
@@ -246,7 +239,7 @@ function loadpage(page, updateURL = true) {
             if (data.trim().substring(0, 9) != '<article>')
 
                 // Carrega a página de erro 404 sem atualizar a rota.
-                loadpage('e404', false)
+                loadPage('e404', false)
 
             // Se o documento é uma página de conteúdo...
             else {

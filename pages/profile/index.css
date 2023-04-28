@@ -1,1 +1,53 @@
+.spinner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+}
 
+.userProfile img {
+    display: block;
+    width: 100%;
+    max-width: 220px;
+    margin: auto;
+    border-radius: .3rem;
+}
+
+.userProfile h3 {
+    text-align: center;
+    margin: 0;
+    padding-top: .25rem;
+}
+
+.userProfile ul {
+    line-height: 1.5;
+    display: table;
+    margin: 1rem auto;
+}
+
+.userProfile button {
+    width: 100%;
+    max-width: 320px;
+    display: block;
+    margin: 1rem auto;
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: .3rem;
+    color: white;
+    cursor: pointer;
+}
+
+#btnProfile {
+    background-color: steelblue;        
+}
+
+#btnLogout {
+    background-color: orangered;
+}
+
+#btnPerms {
+    background-color: red;
+}

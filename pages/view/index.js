@@ -81,7 +81,7 @@ function myView() {
         }).fail((error) => {
 
             // Mostra a página 404.
-            loadpage('e404', false)
+            loadPage('e404', false)
         })
 
 }
