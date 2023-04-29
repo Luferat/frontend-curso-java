@@ -1,1 +1,57 @@
+.spin {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6rem;
+    color: grey;
+}
 
+.userProfile img {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    margin: auto;
+    border-radius: .3rem;
+}
+
+.userProfile h3 {
+    text-align: center;
+    margin: 0;
+    padding: .5rem 0 1rem 0;
+}
+
+.userProfile ul {
+    display: table;
+    margin: auto;
+    line-height: 1.5;
+    padding-left: 1rem;
+}
+
+.userProfile button {
+    font-family: inherit;
+    font-size: inherit;
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: .3rem;
+    display: block;
+    margin: auto;
+    width: 100%;
+    max-width: 320px;
+    color: white;
+    cursor: pointer;
+}
+
+#googleProfile {
+    background-color: steelblue;
+}
+
+#googleLogout {
+    background-color: orangered;
+}
+
+#googleRemove {
+    background-color: red;
+}

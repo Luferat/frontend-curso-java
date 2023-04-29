@@ -25,6 +25,18 @@ function myContacts() {
      */
     $('#cForm').submit(sendContact)
 
+    // Anima ícones de redes sociais.
+    $('.contacts a').mouseover(animeIcon)
+    $('.contacts a').mouseout(noAnimeIcon)
+
+}
+
+function animeIcon() {
+    $(this).children('i').addClass('fa-beat-fade')
+}
+
+function noAnimeIcon() {
+    $(this).children('i').removeClass('fa-beat-fade')
 }
 
 /**
