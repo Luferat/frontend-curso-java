@@ -55,3 +55,23 @@
 #googleRemove {
     background-color: red;
 }
+
+.dzone {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    color: red;
+    font-weight: bold;
+}
+
+.dzone div.line {
+    flex-grow: 1;
+}
+
+.dzone div.line hr {
+    border: none;
+    margin: 0;
+    border-top: 1px solid red;
+    border-bottom: 1px solid red;
+    height: 1px;
+}

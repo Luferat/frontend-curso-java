@@ -42,12 +42,20 @@ function myProfile() {
     Você precisará entrar novamente para ter acesso aos recursos restritos do site.</p>
     <button id="googleLogout"><i class="fa-solid fa-right-from-bracket fa-fw"></i> Sair / Logout</button>
 
+    <div class="dzone">
+        <div class="line"><hr></div>
+        <div>&nbsp;DANGER ZONE!&nbsp;</div>
+        <div class="line"><hr></div>
+    </div>
+
     <p>Para remover sua conta deste aplicativo, acesse seu perfil do Google, localize e remova o aplicativo "<code>project-${firebaseConfig.messagingSenderId}</code>". 
     Lembre-se que o Google só compartilha seu nome público, seu endereço de e-mail e sua imagem de perfil pública com nosso site,
     significa que, normalmente, não é necessário remover as permissões deste aplicativo da sua conta por questões de privacidade.
     </p>
 
     <blockquote><em>Leia nossas <a href="policies">Políticas de privacidade</a> para saber mais.</em></blockquote>
+
+    <p>Além disso, para ter acesso aos recursos restritos você terá que autorizar o aplicativo novamente e não terá acesso aos seus conteúdos da conta antiga.</p>
 
     <p>Se quiser remover mesmo assim, clique no botão abaixo para acessar a página de permissões:</p>
     <button id="googleRemove"><i class="fa-solid fa-user-lock fa-fw"></i> Aplicativos Conectados</button>
