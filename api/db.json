@@ -103,13 +103,16 @@
       "resume": "conheça o produto mais produzido na produção produtiva",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean faucibus justo nibh, sed rutrum neque feugiat ac.",
       "views": 0,
-      "status": "on",
+      "status": "off",
       "id": 4
     }
   ],
   "comments": [
     {
-      "author": "2",
+      "name": "André Luferat",
+      "photo": "https://lh3.googleusercontent.com/a/AGNmyxZH24HtNdsEEpmxHt97Whpea19iB-PcTJLVDzCDCQ=s96-c",
+      "email": "andre@luferat.net",
+      "uid": "xvz40m7oj5YeG7nt0CEmA0ZC5j63",
       "date": "2023-04-17 20:47:00",
       "article": 1,
       "content": "Comentando comentários comentáveis",
@@ -117,7 +120,10 @@
       "id": 1
     },
     {
-      "author": "1",
+      "name": "Luferat CataBits",
+      "photo": "https://lh3.googleusercontent.com/a/AGNmyxZNaBgbtRnZtS3hTDqI-ej-o0O17EzdSH-m8tATRQ=s96-c",
+      "email": "catabits@gmail.com",
+      "uid": "mxh9dvb6AMSIryi4xKPuiFpMxve2",
       "date": "2023-04-17 20:49:00",
       "article": 1,
       "content": "Não é possível que este comentário esteja comentando.",
