@@ -9,7 +9,7 @@
 $(document).ready(myView)
 
 // Inicializa a variável de saída.
-var article = author = authorArts = dateAuthor = cmtList = cmtUser = ''
+var article = author = authorArts = dateAuthor = cmtList = cmtForm = ''
 
 // Função principal da página "user".
 function myView() {
@@ -98,24 +98,38 @@ function myView() {
                 // Se o usuário está logado...
                 if (user) {
 
-                    // Exibe o forulário de login.
+                    // Exibe o formulário de comentários.
+                    cmtForm = `
+<div class="cmtUser">Comentando como ${user.displayName}:</div>
+<form method="post" name="commentForm" id="cmtForm">
+    <textarea name="cmtText" id="cmtText"></textarea>
+    <button type="submit">Enviar</button>
+</form>
+                    `
 
                     // Se não tem logados...
                 } else {
 
                     // Exibe um convite para fazer login.
-                    $('#navUser').html(`<i class="fa-solid fa-user fa-fw"></i><span>Login</span>`)
-                    $('#navUser').attr('href', 'login')
+                    cmtForm = `<p class="center">Logue-se para comentar.</p>`
                 }
+
+                $('#commentForm').html(cmtForm)
+                cmtForm = ''
             });
 
             // Obtém todos os comentários deste artigo
             $.get(app.apiCommentURL + '&article=' + artId)
                 .done((cmts) => {
                     cmts.forEach((cmt) => {
+
+                        // Obtém e formata a data do artigo.
+                        var parts = cmt.date.split(' ')[0].split('-')
+                        var date = `${parts[2]}/${parts[1]}/${parts[0]} às ${art.date.split(' ')[1]}`
+
                         cmtList += `
                             <div class="cmt-item">
-                                <small class="dateAuthor">Por ${cmt.name} em ${cmt.date}</small>
+                                <small class="dateAuthor">Por ${cmt.name} em ${date}</small>
                                 <p>${cmt.content}</p>
                             </div>
                         `
