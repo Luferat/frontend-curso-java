@@ -33,8 +33,12 @@
     border-radius: .25rem;
 }
 
-.cmtContent {
-    
+.cmt-item small {
+    margin-bottom: 0;
+}
+
+.cmt-item p {
+    margin: .5rem 1rem 1.5rem 1rem;
 }
 
 @media screen and (min-width: 480px) {

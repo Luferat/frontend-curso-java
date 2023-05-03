@@ -92,16 +92,36 @@ function myView() {
              * Processa os comentários do artigo.
              **/
 
+            // Monitora status de autenticação do usuário
+            firebase.auth().onAuthStateChanged((user) => {
+
+                // Se o usuário está logado...
+                if (user) {
+
+                    // Exibe o forulário de login.
+
+                    // Se não tem logados...
+                } else {
+
+                    // Exibe um convite para fazer login.
+                    $('#navUser').html(`<i class="fa-solid fa-user fa-fw"></i><span>Login</span>`)
+                    $('#navUser').attr('href', 'login')
+                }
+            });
+
             // Obtém todos os comentários deste artigo
             $.get(app.apiCommentURL + '&article=' + artId)
                 .done((cmts) => {
                     cmts.forEach((cmt) => {
                         cmtList += `
                             <div class="cmt-item">
-                                <div class="dateAuthor">Por ${cmt.name} em ${cmt.date}</div>
+                                <small class="dateAuthor">Por ${cmt.name} em ${cmt.date}</small>
+                                <p>${cmt.content}</p>
                             </div>
                         `
                     })
+                    $('#commentList').html(cmtList)
+                    cmtList = ''
                 })
                 .fail()
 

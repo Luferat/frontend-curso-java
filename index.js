@@ -111,11 +111,9 @@ function myApp() {
 }
 
 // Faz login do usuário usando o Firebase Authentication
-function fbLogin() {
+function fbLogin(redirectPage) {
     firebase.auth().signInWithPopup(provider)
-        .then(() => {
-            loadpage('home')
-        })
+    loadpage(redirectPage)
 }
 
 /**
@@ -163,7 +161,7 @@ function routerLink() {
      * Se clicou no link para 'login', executa a função de login.
      */
     if (href == 'login') {
-        fbLogin()
+        fbLogin('home')
         return false
     }
 
