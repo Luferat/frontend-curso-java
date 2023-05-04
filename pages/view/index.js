@@ -32,6 +32,7 @@ function myView() {
 <h2>${art.title}</h2>
 <small id="dateAuthor" class="dateAuthor"></small>
 <div>${art.content}</div>
+&nbsp;<hr class="sep">
 <h3 class="comt-title">Comentários</h3>
 <div id="commentForm"></div>
 <div id="commentList"></div>   
@@ -81,6 +82,9 @@ function myView() {
                             });
                             authorArts += `</ul>`
                             $('aside').html(author + authorArts)
+
+                            // Monitora cliques nos artigos
+                            $(document).on('click', '.autor-art-list a', loadArticle)
 
                             // DEBUG → Evita repetição dos artigos do autor.
                             authorArts = ''
@@ -202,7 +206,7 @@ if(cmts.length > 0){
             })
 
         } else {
-            cmtList = `<p class="center">Nenhum comentário.<br>Seja a(o) primeira(o) a comentar!</p>`
+            cmtList = `<hr><p class="center">Nenhum comentário.<br>Seja a(o) primeira(o) a comentar!</p>`
         }
 
             $('#commentList').html(cmtList)

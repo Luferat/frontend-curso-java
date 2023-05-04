@@ -36,6 +36,7 @@ var app = {
     apiCommentURL: apiBaseURL + 'comments?_sort=date&_order=desc&status=on',
     apiCommentPostURL: apiBaseURL + 'comments'
 }
+var path
 
 /**
  * jQuery → Quando o documento estiver pronto, executa a função principal,
@@ -95,7 +96,7 @@ function myApp() {
     }
 
     // Armazena a rota obtida em 'path'.        
-    var path = sessionStorage.path
+    path = sessionStorage.path
 
     // Apaga o 'localStorage', liberando o recurso.
     delete sessionStorage.path
@@ -104,7 +105,7 @@ function myApp() {
     loadpage(path)
 
     /**
-     * jQuery → Monitora cliques em elementos '<a>' que , se ocorre, chama a função 
+     * jQuery → Monitora cliques em elementos '<a>' que, se ocorre, chama a função 
      * routerLink().
      **/
     $(document).on('click', 'a', routerLink)
@@ -115,7 +116,7 @@ function myApp() {
 function fbLogin() {
     firebase.auth().signInWithPopup(provider)
         .then(() => {
-            loadpage('home')
+            loadpage(location.pathname.split('/')[1])
         })
 }
 
@@ -358,4 +359,16 @@ function getAge(sysDate) {
 
     // Retorna a idade.
     return age
+}
+
+/**
+ * Carrega o artigo completo.
+ */
+function loadArticle() {
+
+    // Obtém o id do artigo e armazena na sessão.
+    sessionStorage.article = $(this).attr('data-id')
+
+    // Carrega a página que exibe artigos → view.
+    loadpage('view')
 }

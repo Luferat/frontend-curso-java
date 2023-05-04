@@ -1,15 +1,5 @@
 {
-  "contacts": [
-    {
-      "name": "Setembrino Trocatapas",
-      "email": "andre.ataide@rj.senac.br",
-      "subject": "Teste da Maria",
-      "message": "asdfasd fasdf da",
-      "date": "2023-05-04 00:20:14",
-      "status": "received",
-      "id": 3
-    }
-  ],
+  "contacts": [],
   "users": [
     {
       "id": 1,
@@ -32,7 +22,7 @@
       "bio": "Biografa, stenografa, fotografa e farofa",
       "birth": "2001-08-28",
       "social": "",
-      "type": "user",
+      "type": "moderator",
       "status": "on"
     },
     {
@@ -43,7 +33,7 @@
       "bio": "Cantor, compositor, expositor, dispositor e instrutor.",
       "birth": "1984-11-27",
       "social": "",
-      "type": "user",
+      "type": "admin",
       "status": "on",
       "id": 3
     }
@@ -90,7 +80,7 @@
       "resume": "conheça o produto mais produzido na produção produtiva",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean faucibus justo nibh, sed rutrum neque feugiat ac.",
       "views": 0,
-      "status": "off",
+      "status": "on",
       "id": 4
     }
   ],
@@ -193,6 +183,28 @@
       "date": "2023-05-04 00:13:32",
       "status": "on",
       "id": 9
+    },
+    {
+      "name": "André Luferat",
+      "photo": "https://lh3.googleusercontent.com/a/AGNmyxZH24HtNdsEEpmxHt97Whpea19iB-PcTJLVDzCDCQ=s96-c",
+      "email": "andre@luferat.net",
+      "uid": "xvz40m7oj5YeG7nt0CEmA0ZC5j63",
+      "article": "4",
+      "content": "Comentário fake para testes",
+      "date": "2023-05-04 17:55:32",
+      "status": "on",
+      "id": 10
+    },
+    {
+      "name": "André Luferat",
+      "photo": "https://lh3.googleusercontent.com/a/AGNmyxZH24HtNdsEEpmxHt97Whpea19iB-PcTJLVDzCDCQ=s96-c",
+      "email": "andre@luferat.net",
+      "uid": "xvz40m7oj5YeG7nt0CEmA0ZC5j63",
+      "article": "4",
+      "content": "Comentário fake para testes 2",
+      "date": "2023-05-04 17:55:40",
+      "status": "on",
+      "id": 11
     }
   ]
 }
