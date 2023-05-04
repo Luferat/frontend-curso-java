@@ -1,3 +1,49 @@
-<article>Lorem ipsum</article>
+<article>
 
-<aside>Lorem ipsum</aside>
+    <h2>Faça contato</h2>
+
+    <form action="" method="post" id="cForm" name="contactForm">
+
+        <p>Preecha <strong>todos os campos</strong> do formulário abaixo para entrar em contato com a equipe do FrontEndeiros.</p>
+
+        <p>
+            <label for="name">Nome:</label>
+            <input type="text" name="name" id="name" placeholder="Seu nome completo" required minlength="3">
+        </p>
+
+        <p>
+            <label for="email">E-mail:</label>
+            <input type="email" name="email" id="email" placeholder="joca@silva.com" required>
+        </p>
+
+        <p>
+            <label for="subject">Assunto:</label>
+            <input type="text" name="subject" id="subject" placeholder="Assunto do seu contato" required minlength="5">
+        </p>
+
+        <p>
+            <label for="message">Mensagem:</label>
+            <textarea name="message" id="message" placeholder="Sua mensagem" required minlength="5"></textarea>
+        </p>
+
+        <p>
+            <button type="submit">Enviar</button>
+            <small>&larr; Clique somente uma vez.</small>
+        </p>
+
+    </form>
+
+</article>
+ 
+<aside>
+    <h3><i class="fa-solid fa-plus fa-fw"></i> Contatos</h3>
+    <p>Você também pode entrar em contato conosco por outros meios:</p>
+    <nav class="contacts">
+        <a href="https://wa.me/5521987654321" target="_blank" title="Fale conosco pelo WhatsApp"><i class="fa-brands fa-square-whatsapp fa-fw"></i></a>
+        <a href="tel:5521987654321" target="_blank"><i class="fa-solid fa-square-phone fa-fw"></i></a>
+        <a href="mailto:none@none.com" target="_blank"><i class="fa-solid fa-square-envelope fa-fw"></i></a>
+        <a href="https://facebook.com/frontendeiros" target="_blank"><i class="fa-brands fa-square-facebook fa-fw"></i></a>
+        <a href="https://github.com/frontendeiros" target="_blank"><i class="fa-brands fa-square-github fa-fw"></i></a>
+        <a href="https://instagram.com/frontendeiros" target="_blank"><i class="fa-brands fa-square-instagram fa-fw"></i></a>
+    </nav>
+</aside>

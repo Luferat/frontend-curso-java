@@ -1,1 +1,99 @@
 /* Folhas de estilo de contacts. */
+
+#cForm {
+    display: table;
+    margin: auto;
+    width: 100%;
+    max-width: 500px;
+}
+
+#cForm label {
+    display: block;
+    padding: 0 0 .25rem .25rem;
+}
+
+#cForm input,
+#cForm textarea,
+#cForm button {
+    font-family: inherit;
+    font-size: inherit;
+    border-radius: .3rem;
+}
+
+#cForm input,
+#cForm textarea {
+    border: 1px solid red;
+    border-bottom: 3px solid red;
+    padding: .4rem;
+    width: 100%;
+    background-color: rgb(255, 230, 230);
+}
+
+#cForm textarea {
+    height: 6rem;
+    resize: vertical;
+}
+
+#cForm button {
+    padding: .5rem 1rem;
+    border: none;
+    background-image: linear-gradient(rgb(120, 174, 219), rgb(36, 89, 132));
+    color: white;
+    cursor: pointer;
+}
+
+#cForm button:hover {
+    background-image: linear-gradient(rgb(255, 125, 78), rgb(177, 47, 0));
+}
+
+#cForm small {
+    color: grey;
+}
+
+#cForm input:valid,
+#cForm textarea:valid {
+    border: 1px solid green;
+    border-bottom: 3px solid green;
+    background-color: rgb(232, 240, 254);
+}
+
+#cForm:invalid button {
+    background-image: linear-gradient(rgb(172, 172, 172), rgb(76, 76, 76));
+    pointer-events: none;
+}
+
+nav.contacts {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-bottom: 1.5rem;
+}
+
+nav.contacts a {
+    font-size: 4rem;
+}
+
+nav.contacts i[class~=fa-square-whatsapp] {
+    color: #128c7e;
+}
+
+nav.contacts i[class~=fa-square-phone] {
+    color: #666;
+}
+
+nav.contacts i[class~=fa-square-envelope] {
+    color: orangered;
+}
+
+nav.contacts i[class~=fa-square-facebook] {
+    color: #1877f2;
+}
+
+nav.contacts i[class~=fa-square-github] {
+    color: #6e5494;
+}
+
+nav.contacts i[class~=fa-square-instagram] {
+    color: #405de6;
+}
