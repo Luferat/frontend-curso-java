@@ -278,6 +278,10 @@ body {
     margin: 0;    
 }
 
+.center {
+    text-align: center;
+}
+
 /**************************************************/
 /* Responsividade → Em larguras maiores que 480px */
 /**************************************************/

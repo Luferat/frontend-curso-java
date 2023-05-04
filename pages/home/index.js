@@ -43,7 +43,7 @@ function myHome() {
                             <p>${art.resume}</p>
                         </div>
                     </div>                    
-                `
+                ` 
             })
 
             // Exibe a lista de artigos na 'home'.

@@ -33,7 +33,8 @@ var app = {
     apiArticlesURL: apiBaseURL + 'articles?_sort=date&_order=desc&status=on',
     apiArticleURL: apiBaseURL + 'articles/',
     apiUserURL: apiBaseURL + 'users/',
-    apiCommentURL: apiBaseURL + 'comments?_sort=date&_order=desc&status=on'
+    apiCommentURL: apiBaseURL + 'comments?_sort=date&_order=desc&status=on',
+    apiCommentPostURL: apiBaseURL + 'comments'
 }
 
 /**
