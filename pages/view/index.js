@@ -15,7 +15,7 @@ function myView() {
             getAuthorDate(artData)
             getAuthorArticles(artData, 5)
             getUserCommentForm(artData)
-            getArticlesComments(artData, 999)
+            getArticleComments(artData, 999)
         })
         .fail((error) => {
             console.error(error)
@@ -73,7 +73,7 @@ function getAuthorArticles(artData, limit) {
 
 }
 
-function getArticlesComments(artData, limit) {
+function getArticleComments(artData, limit) {
 
     var commentList = ''
 
@@ -91,7 +91,10 @@ function getArticlesComments(artData, limit) {
                     commentList += `
                         <div class="cmtBox">
                             <div class="cmtMetadata">
-                                <span>Por ${cmt.name}</span><span>em ${sysToBrDate(cmt.date)}.</span>
+                                <img src="${cmt.photo}" alt="${cmt.name}" referrerpolicy="no-referrer">
+                                <div class="cmtMetatexts">
+                                    <span>Por ${cmt.name}</span><span>em ${sysToBrDate(cmt.date)}.</span>
+                                </div>
                             </div>
                             <div class="cmtContent">${content}</div>
                         </div>
