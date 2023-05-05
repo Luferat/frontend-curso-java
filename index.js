@@ -110,12 +110,19 @@ function myApp() {
      **/
     $(document).on('click', 'a', routerLink)
 
+    /**
+     * Quando clicar em um artigo.
+     **/
+    $(document).on('click', '.art-item', loadArticle)
+
 }
 
 // Faz login do usuário usando o Firebase Authentication
 function fbLogin() {
     firebase.auth().signInWithPopup(provider)
         .then(() => {
+
+            // Recarrega a página atual após o login.
             loadpage(location.pathname.split('/')[1])
         })
 }
@@ -371,4 +378,16 @@ function loadArticle() {
 
     // Carrega a página que exibe artigos → view.
     loadpage('view')
+}
+
+/**
+ * Sanitiza um texto, removendo todas as tags HTML.
+ */
+function stripHtml(html) {
+
+    // Armazena o texto no DOM na forma de string.
+    let doc = new DOMParser().parseFromString(html, 'text/html');
+
+    // Obtém e retorna o conteúdo do DOM como texto puro.
+    return doc.body.textContent || "";
 }

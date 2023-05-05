@@ -15,12 +15,7 @@ function myHome() {
      **/
     changeTitle()
 
-    /**
-     * Quando clicar em um artigo.
-     **/
-    $(document).on('click', '.art-item', loadArticle)
-    // $('.art-item').click(loadArticle)
-
+    // Armazenará a lista de artigos.
     var articleList = '';
 
     /**
