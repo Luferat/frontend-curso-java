@@ -1,14 +1,53 @@
-.autor-art-list {
-    padding: 0;
-    padding-left: 1rem;
-    line-height: 1.4;
+#commentTitle {
+    display: flex;
+    align-items: center;
 }
 
-.art-author {
+#artMetadata,
+.cmtMetadata {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+    font-size: small;
+    background-color: #ccc;
+    padding: .25rem .5rem;
+    border-radius: .3rem;
+    margin-bottom: 1rem;
+}
+
+#artMetadata span:first-child::after,
+.cmtMetadata span:first-child::after {
+    content: "\00a0";
+}
+
+.cmtMetadata {
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 0;
+}
+
+.cmtContent {
+    padding: .5rem 1rem 1.5rem 1rem;
+}
+
+#commentTitle hr {
+    flex-grow: 1;
+    border: none;
+    border-top: 1px dotted grey;
+    border-bottom: 1px dotted grey;
+    height: 1px;
+}
+
+#commentTitle span {
+    padding: 0 .5rem;
+}
+
+#artAuthor {
     padding-top: 1rem;
 }
 
-.art-author img {
+#artAuthor img {
     display: block;
     margin: auto;
     width: 100%;
@@ -16,21 +55,28 @@
     border-radius: .3rem;
 }
 
-.art-author h3 {
-    margin-bottom: 0;
+#artAuthor h3 {
+    margin: .25rem 0 0 0;
 }
 
-.art-author h5 {
+#artAuthor h5 {
     margin-top: .25rem;
 }
 
-.dateAuthor {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-    padding: .25rem .5rem;
-    background-color: rgb(202, 202, 202);
-    border-radius: .25rem;
+#authorArtcicles ul {
+    padding: 0;
+    padding-left: 1rem;
+}
+
+#authorArtcicles ul li {
+    color: steelblue;
+    cursor: pointer;
+    margin-top: .25rem;
+}
+
+#authorArtcicles ul li:hover {
+    color: orangered;
+    text-decoration: underline;
 }
 
 #commentForm {
@@ -39,68 +85,24 @@
     margin-bottom: 1rem;
 }
 
-#commentForm textarea,
-#commentForm button {
-    display: block;
-    font-size: inherit;
-    font-family: inherit;
-    border-radius: .3rem;
-}
-
 #commentForm textarea {
-    width: 100%;
-    height: 7rem;
-    padding: .5rem;
-    resize: vertical;
-    border: 1px solid grey;
     margin-top: .5rem;
-}
-
-#commentForm button {
-    border: none;
-    background-color: steelblue;
-    color: white;
-    padding: .5rem 1rem;
-    margin-top: .25rem;
-    cursor: pointer;
 }
 
 #commentForm button:hover {
     background-color: orangered;
 }
 
-#commentList small {
-    margin: 0;
-}
-
-.cmtContent {
-    margin: .75rem 1rem 1.5rem 1rem;
-}
-
-.sep {
-    border: none;
-    border-top: 1px solid grey;
-    border-bottom: 1px solid gray;
-    height: 1px;
-}
-
-.art-item {
-    color: steelblue;
-    cursor: pointer;
-}
-
-.art-item:hover {
-    color: orangered;
-    text-decoration: underline;
-}
 
 @media screen and (min-width: 480px) {
 
-    .dateAuthor {
+    #artMetadata,
+    .cmtMetadata {
         flex-direction: row;
     }
 
     #commentForm {
         width: 90%;
     }
+
 }

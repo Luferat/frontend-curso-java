@@ -275,11 +275,73 @@ body {
 .nbsp {
     border: .25rem solid transparent;
     height: .1px;
-    margin: 0;    
+    margin: 0;
 }
 
 .center {
     text-align: center;
+}
+
+.spin {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6rem;
+    color: grey;
+}
+
+/***************/
+/* Formulários */
+/***************/
+
+form * {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+form label {
+    display: block;
+    padding: 0 0 .25rem .25rem;
+}
+
+form input:not(input[type=radio]),
+form textarea,
+form button {
+    border-radius: .3rem;
+}
+
+form input:not(input[type=radio]),
+form textarea {
+    padding: .5rem;
+    width: 100%;
+    border: 1px solid grey;
+    display: block;
+}
+
+form textarea {
+    height: 7rem;
+    resize: vertical;
+}
+
+form button {
+    border: none;
+    background-image: linear-gradient(rgb(120, 174, 219), rgb(36, 89, 132));
+    color: white;
+    padding: .5rem 1rem;
+    margin-top: .25rem;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-image: linear-gradient(rgb(255, 125, 78), rgb(177, 47, 0));
+}
+
+form button:disabled {
+    background-image: linear-gradient(rgb(172, 172, 172), rgb(76, 76, 76));
+    pointer-events: none;
 }
 
 /**************************************************/
@@ -298,7 +360,7 @@ body {
 
     #wrap>header h1 {
         font-size: 2rem;
-        letter-spacing: .1rem;        
+        letter-spacing: .1rem;
     }
 
     #wrap>header h1 small {
