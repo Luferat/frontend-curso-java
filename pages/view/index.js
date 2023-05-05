@@ -47,18 +47,12 @@ function myView() {
             // Altera o título da página.
             changeTitle(art.title)
 
-            // Atualiza o contador de views deste artigo.
-            var view = {
-                views: parseInt(art.views) + 1
-            }
-
-            // Grava o novo contador no artigo.
-            var sData = {
+            // Atualiza o contador de visitas do artigo.
+            $.ajax({
                 type: 'PATCH',
                 url: app.apiArticleURL + artId,
-                data: view
-            }
-            $.ajax(sData);
+                data: { views: parseInt(art.views) + 1 }
+            });
 
             // Obter dados do autor.
             $.get(app.apiUserURL + art.author)

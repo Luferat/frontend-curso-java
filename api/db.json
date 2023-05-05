@@ -46,7 +46,7 @@
       "thumbnail": "https://picsum.photos/200",
       "resume": "Aprenda a fazer alguma coisa que deve ser feita por quem sabe.",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean faucibus justo nibh, sed rutrum neque feugiat ac.",
-      "views": "7",
+      "views": "8",
       "status": "on",
       "id": 1,
       "[object Object]": ""
@@ -58,7 +58,7 @@
       "thumbnail": "https://picsum.photos/201",
       "resume": "Desde que se sabe, é assim que é, para sempre ser.",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean faucibus justo nibh, sed rutrum neque feugiat ac.",
-      "views": 0,
+      "views": "2",
       "status": "on",
       "id": 2
     },
