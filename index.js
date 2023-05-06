@@ -36,7 +36,6 @@ var app = {
     apiCommentURL: apiBaseURL + 'comments?_sort=date&_order=desc&status=on',
     apiCommentPostURL: apiBaseURL + 'comments'
 }
-var path
 
 /**
  * jQuery → Quando o documento estiver pronto, executa a função principal,
@@ -62,6 +61,26 @@ $(document).ready(myApp)
  *  • https://www.w3schools.com/js/js_functions.asp
  **/
 function myApp() {
+
+    onstorage = () => {
+
+        if (localStorage.popupConfirm) {
+            $('body').prepend(`
+            <div id="popup">
+                <div class="popup-body">
+                    <div class="popup-text">${localStorage.popupConfirm}</div>
+                    <div class="popup-close"><i class="fa-solid fa-xmark fa-fw"></i></div>
+                </div>
+            </div>
+            `)
+        }
+        delete localStorage.popupConfirm
+        $('.popup-close').click(() => { $('#popup').remove() })
+        setTimeout(() => {
+            $('#popup').remove()
+        }, parseInt(localStorage.popupTime) || 3000)
+
+    };
 
     // Monitora status de autenticação do usuário
     firebase.auth().onAuthStateChanged((user) => {
@@ -120,7 +139,9 @@ function myApp() {
 // Faz login do usuário usando o Firebase Authentication
 function fbLogin() {
     firebase.auth().signInWithPopup(provider)
-        .then(() => {
+        .then((user) => {
+
+            popUp(`Olá ${user.user.displayName}!`)
 
             // Recarrega a página atual após o login.
             loadpage(location.pathname.split('/')[1])
@@ -317,28 +338,10 @@ function loadpage(page, updateURL = true) {
  * 
  **/
 function changeTitle(title = '') {
-
-    /**
-     * Define o título padrão da página.
-     */
     let pageTitle = app.siteName + ' - '
-
-    /**
-     * Se não foi definido um título para a página, 
-     * usa o slogan.
-     **/
     if (title == '') pageTitle += app.siteSlogan
-
-    /**
-     * Se foi definido um título, usa-o.
-     */
     else pageTitle += title
-
-    /**
-     * Escreve o novo título na tag <title></title>.
-     */
     $('title').html(pageTitle)
-
 }
 
 /**
@@ -351,7 +354,7 @@ function getAge(sysDate) {
     const tMonth = today.getMonth() + 1
     const tDay = today.getDate()
 
-    // Obtebdo partes da data original.
+    // Obtendo partes da data original.
     const parts = sysDate.split('-')
     const pYear = parts[0]
     const pMonth = parts[1]
@@ -361,8 +364,7 @@ function getAge(sysDate) {
     var age = tYear - pYear
 
     // Verificar o mês e o dia.
-    if (pMonth > tMonth) age--
-    else if (pMonth == tMonth && pDay > tDay) age--
+    if (pMonth > tMonth || pMonth == tMonth && pDay > tDay) age--
 
     // Retorna a idade.
     return age
@@ -370,24 +372,33 @@ function getAge(sysDate) {
 
 /**
  * Carrega o artigo completo.
- */
+ **/
 function loadArticle() {
-
-    // Obtém o id do artigo e armazena na sessão.
     sessionStorage.article = $(this).attr('data-id')
-
-    // Carrega a página que exibe artigos → view.
     loadpage('view')
 }
 
 /**
  * Sanitiza um texto, removendo todas as tags HTML.
- */
+ **/
 function stripHtml(html) {
-
-    // Armazena o texto no DOM na forma de string.
     let doc = new DOMParser().parseFromString(html, 'text/html');
-
-    // Obtém e retorna o conteúdo do DOM como texto puro.
     return doc.body.textContent || "";
+}
+
+/**
+ * Converte a data 'system date' informada para 'pt-BR'.
+ **/
+function sysToBrDate(systemDate, time = true) {
+    var parts = systemDate.split(' ')[0].split('-')
+    var out = `${parts[2]}/${parts[1]}/${parts[0]}`
+    if (time) out += ` às ${systemDate.split(' ')[1]}`
+    return out
+}
+
+function popUp(text, time = 3000) {
+    const x = window.open('', 'popupWindow', 'width=1,height=1,left=10000');
+    x.localStorage.setItem('popupConfirm', text);
+    x.localStorage.setItem('popupTime', time);
+    x.close()
 }

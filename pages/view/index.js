@@ -41,12 +41,6 @@ function getAuthorDate(artData) {
         })
 }
 
-function sysToBrDate(systemDate) {
-    var parts = systemDate.split(' ')[0].split('-')
-    return `${parts[2]}/${parts[1]}/${parts[0]} às ${systemDate.split(' ')[1]}`
-}
-
-
 function getAuthorArticles(artData, limit) {
 
     $.get(apiBaseURL + 'articles', {
@@ -125,10 +119,48 @@ function getUserCommentForm(artData) {
                     <button type="submit">Enviar</button>
                 </form>
             `
+            $('#commentForm').html(cmtForm)
+            $('#formComment').submit((event) => {
+                sendComment(event, artData, user)
+            })
         } else {
             cmtForm = `<p class="center"><a href="login">Logue-se</a> para comentar.</p>`
         }
-        $('#commentForm').html(cmtForm)
+
     })
+
+}
+
+function sendComment(event, artData, userData) {
+
+    event.preventDefault()
+    var content = stripHtml($('#txtContent').val().trim())
+    $('#txtContent').val(content)
+    if (content == '') return false
+
+    const today = new Date()
+    sysdate = today.toISOString().replace('T', ' ').split('.')[0]
+
+    const formData = {
+        name: userData.displayName,
+        photo: userData.photoURL,
+        email: userData.email,
+        uid: userData.uid,
+        article: artData.id,
+        content: content,
+        date: sysdate,
+        status: 'on'
+    }
+
+    $.post(app.apiCommentPostURL, formData)
+        .done((data) => {
+            if (data.id > 0) {
+                popUp('Seu contato foi enviado com sucesso!')
+                loadpage('view')
+            }
+        })
+        .fail((err) => {
+            console.error(err)
+        })
 
 }

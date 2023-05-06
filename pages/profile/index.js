@@ -93,6 +93,8 @@ function toProfile() {
 function logout() {
     firebase.auth().signOut()
 
+    popUp('Você saiu do aplicativo.')
+
     // Vai para a página inicial → home.
     loadpage('home')
 }
