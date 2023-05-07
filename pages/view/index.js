@@ -32,8 +32,7 @@ function myView() {
 <h2>${art.title}</h2>
 <small id="dateAuthor" class="dateAuthor"></small>
 <div>${art.content}</div>
-&nbsp;<hr class="sep">
-<h3 class="comt-title">Comentários</h3>
+<h3 class="comt-title"><hr><span>Comentários</span><hr></h3>
 <div id="commentForm"></div>
 <div id="commentList"></div>   
             `
