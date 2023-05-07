@@ -10,14 +10,6 @@ function myProfile() {
         // Se o usuário está logado...
         if (user) {
 
-            // Converte a data de cadastro para pt-BR.
-            theDate = new Date(user.metadata.creationTime)
-            created = theDate.toLocaleDateString('pt-BR') + " às " + theDate.toLocaleTimeString('pt-BR')
-
-            // Converte a data de último login para pt-BR.
-            theDate = new Date(user.metadata.lastSignInTime)
-            last = theDate.toLocaleDateString('pt-BR') + " às " + theDate.toLocaleTimeString('pt-BR')
-
             // Formata e exibe o perfil na página, no elemento '<article>'.
             $('article').html(`
 
@@ -31,8 +23,8 @@ function myProfile() {
     <ul>
         <li><strong>Id local:</strong> ${user.uid}</li>
         <li><strong>E-mail:</strong> ${user.email}</li>
-        <li><strong>Cadastro:</strong> ${created}</li>
-        <li><strong>Último login:</strong> ${last}</li>
+        <li><strong>Cadastro:</strong> ${myDate.jsToBr(user.metadata.creationTime)}</li>
+        <li><strong>Último login:</strong> ${myDate.jsToBr(user.metadata.lastSignInTime)}</li>
     </ul>
 
     <p>Clique no botão abaixo para ver/editar seu perfil.</p>
@@ -92,10 +84,7 @@ function toProfile() {
 // Faz logout do usuário.
 function logout() {
     firebase.auth().signOut()
-
-    popUp('Você saiu do aplicativo.')
-
-    // Vai para a página inicial → home.
+    popUp({ type: 'alert', text: 'Você saiu do aplicativo.' })
     loadpage('home')
 }
 

@@ -1,11 +1,11 @@
 {
   "contacts": [
     {
-      "name": "Setembrino Trocatapas",
-      "email": "andre.ataide@rj.senac.br",
-      "subject": "Teste da Maria",
-      "message": "dsfgdfsgdfsg",
-      "date": "2023-05-06 00:29:53",
+      "name": "André Luís Fernandes de Ataíde",
+      "email": "andre@luferat.net",
+      "subject": "Teste da Mari",
+      "message": "fd gdsfgfdsg dfs",
+      "date": "2023-05-07 14:13:13",
       "status": "received",
       "id": 1
     }
@@ -55,8 +55,8 @@
       "title": "Por que as fuinhas gritam",
       "thumbnail": "https://picsum.photos/200",
       "resume": "Aprenda a fazer alguma coisa que deve ser feita por quem sabe.",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean faucibus justo nibh, sed rutrum neque feugiat ac.",
-      "views": "8",
+      "content": "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos vel hic consectetur mollitia asperiores iste perspiciatis pariatur quo, aliquam dolorum odio rem, unde expedita cumque laudantium cum nam corporis aliquid!</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est vero officia ea, ex nisi ab laudantium rerum, consectetur excepturi sed amet consequatur expedita earum dignissimos! Cum perspiciatis nihil tempora quae.</p><img src=\"https://picsum.photos/300/400\" alt=\"Imagem aleatória\"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores quisquam culpa hic nulla in natus possimus nihil, quam assumenda blanditiis eaque non odit atque voluptates quibusdam, dolore esse soluta praesentium!</p><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem dolorem nam cum tenetur doloribus numquam ullam, non ea eius porro molestias, provident consequuntur dolore laudantium similique! Laudantium error quo veniam.</p><h4>Links:</h4><ul><li><a href=\"https://github.com\">Github</a></li><li><a href=\"https://firebase.com\">Firebase</a></li></ul><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quia, incidunt nobis ipsum suscipit accusamus nesciunt ratione laborum totam, eveniet blanditiis quae et ab quo ut delectus modi ex veniam!</p>",
+      "views": "13",
       "status": "on",
       "id": 1,
       "[object Object]": ""
@@ -67,8 +67,8 @@
       "title": "Gatos que latem e cães que miam",
       "thumbnail": "https://picsum.photos/201",
       "resume": "Desde que se sabe, é assim que é, para sempre ser.",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean faucibus justo nibh, sed rutrum neque feugiat ac.",
-      "views": "2",
+      "content": "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos vel hic consectetur mollitia asperiores iste perspiciatis pariatur quo, aliquam dolorum odio rem, unde expedita cumque laudantium cum nam corporis aliquid!</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est vero officia ea, ex nisi ab laudantium rerum, consectetur excepturi sed amet consequatur expedita earum dignissimos! Cum perspiciatis nihil tempora quae.</p><img src=\"https://picsum.photos/300/400\" alt=\"Imagem aleatória\"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores quisquam culpa hic nulla in natus possimus nihil, quam assumenda blanditiis eaque non odit atque voluptates quibusdam, dolore esse soluta praesentium!</p><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem dolorem nam cum tenetur doloribus numquam ullam, non ea eius porro molestias, provident consequuntur dolore laudantium similique! Laudantium error quo veniam.</p><h4>Links:</h4><ul><li><a href=\"https://github.com\">Github</a></li><li><a href=\"https://firebase.com\">Firebase</a></li></ul><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quia, incidunt nobis ipsum suscipit accusamus nesciunt ratione laborum totam, eveniet blanditiis quae et ab quo ut delectus modi ex veniam!</p>",
+      "views": "4",
       "status": "on",
       "id": 2
     },
@@ -78,8 +78,8 @@
       "title": "Mais um artigo informativo",
       "thumbnail": "https://picsum.photos/202",
       "resume": "Esse artigo ensina como fazer um artigo que ensina alguma coisa.",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean faucibus justo nibh, sed rutrum neque feugiat ac.",
-      "views": 0,
+      "content": "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos vel hic consectetur mollitia asperiores iste perspiciatis pariatur quo, aliquam dolorum odio rem, unde expedita cumque laudantium cum nam corporis aliquid!</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est vero officia ea, ex nisi ab laudantium rerum, consectetur excepturi sed amet consequatur expedita earum dignissimos! Cum perspiciatis nihil tempora quae.</p><img src=\"https://picsum.photos/300/400\" alt=\"Imagem aleatória\"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores quisquam culpa hic nulla in natus possimus nihil, quam assumenda blanditiis eaque non odit atque voluptates quibusdam, dolore esse soluta praesentium!</p><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem dolorem nam cum tenetur doloribus numquam ullam, non ea eius porro molestias, provident consequuntur dolore laudantium similique! Laudantium error quo veniam.</p><h4>Links:</h4><ul><li><a href=\"https://github.com\">Github</a></li><li><a href=\"https://firebase.com\">Firebase</a></li></ul><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quia, incidunt nobis ipsum suscipit accusamus nesciunt ratione laborum totam, eveniet blanditiis quae et ab quo ut delectus modi ex veniam!</p>",
+      "views": "11",
       "status": "on",
       "id": 3
     },
@@ -89,8 +89,8 @@
       "title": "Extensão que extende os extendidos",
       "thumbnail": "https://picsum.photos/199",
       "resume": "conheça o produto mais produzido na produção produtiva",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean faucibus justo nibh, sed rutrum neque feugiat ac.",
-      "views": 0,
+      "content": "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos vel hic consectetur mollitia asperiores iste perspiciatis pariatur quo, aliquam dolorum odio rem, unde expedita cumque laudantium cum nam corporis aliquid!</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est vero officia ea, ex nisi ab laudantium rerum, consectetur excepturi sed amet consequatur expedita earum dignissimos! Cum perspiciatis nihil tempora quae.</p><img src=\"https://picsum.photos/300/400\" alt=\"Imagem aleatória\"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores quisquam culpa hic nulla in natus possimus nihil, quam assumenda blanditiis eaque non odit atque voluptates quibusdam, dolore esse soluta praesentium!</p><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem dolorem nam cum tenetur doloribus numquam ullam, non ea eius porro molestias, provident consequuntur dolore laudantium similique! Laudantium error quo veniam.</p><h4>Links:</h4><ul><li><a href=\"https://github.com\">Github</a></li><li><a href=\"https://firebase.com\">Firebase</a></li></ul><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quia, incidunt nobis ipsum suscipit accusamus nesciunt ratione laborum totam, eveniet blanditiis quae et ab quo ut delectus modi ex veniam!</p>",
+      "views": "64",
       "status": "on",
       "id": 4
     }
@@ -101,9 +101,9 @@
       "photo": "https://lh3.googleusercontent.com/a/AGNmyxZH24HtNdsEEpmxHt97Whpea19iB-PcTJLVDzCDCQ=s96-c",
       "email": "andre@luferat.net",
       "uid": "xvz40m7oj5YeG7nt0CEmA0ZC5j63",
-      "article": "4",
+      "article": "1",
       "content": "Comentário fake para testes",
-      "date": "2023-05-06 00:42:40",
+      "date": "2023-05-07 14:56:44",
       "status": "on",
       "id": 1
     },
@@ -112,9 +112,9 @@
       "photo": "https://lh3.googleusercontent.com/a/AGNmyxZH24HtNdsEEpmxHt97Whpea19iB-PcTJLVDzCDCQ=s96-c",
       "email": "andre@luferat.net",
       "uid": "xvz40m7oj5YeG7nt0CEmA0ZC5j63",
-      "article": "4",
+      "article": "3",
       "content": "Comentário fake para testes",
-      "date": "2023-05-06 00:43:12",
+      "date": "2023-05-07 14:56:53",
       "status": "on",
       "id": 2
     },
@@ -123,11 +123,22 @@
       "photo": "https://lh3.googleusercontent.com/a/AGNmyxZH24HtNdsEEpmxHt97Whpea19iB-PcTJLVDzCDCQ=s96-c",
       "email": "andre@luferat.net",
       "uid": "xvz40m7oj5YeG7nt0CEmA0ZC5j63",
-      "article": "4",
-      "content": "Comentário fake para testes",
-      "date": "2023-05-06 00:43:21",
+      "article": "3",
+      "content": "Comentário fake para testes consectetur adipisicing elit. Illo, quia, incidunt",
+      "date": "2023-05-07 14:58:40",
       "status": "on",
       "id": 3
+    },
+    {
+      "name": "André Luferat",
+      "photo": "https://lh3.googleusercontent.com/a/AGNmyxZH24HtNdsEEpmxHt97Whpea19iB-PcTJLVDzCDCQ=s96-c",
+      "email": "andre@luferat.net",
+      "uid": "xvz40m7oj5YeG7nt0CEmA0ZC5j63",
+      "article": "2",
+      "content": "Comentário fake para testes",
+      "date": "2023-05-07 15:01:16",
+      "status": "on",
+      "id": 4
     }
   ]
 }

@@ -74,17 +74,14 @@ function sendContact(ev) {
             return false
     }
 
-    // Obtém a data atual do sistema.
-    const today = new Date()
-
-    // Formata a data para 'system date' (aaaa-mm-dd hh:ii:ss).
-    formJSON.date = today.toISOString().replace('T', ' ').split('.')[0]
+    // Obtém a data atual do sistema em 'system date' (aaaa-mm-dd hh:ii:ss).
+    formJSON.date = myDate.todayToSys()
 
     // Campo de status do contato.
     formJSON.status = 'received'
 
     // Envia os dados do formulário para a API.
-    $.post(app.apiContactsURL, formJSON)
+    $.post(app.apiBaseURL + 'contacts', formJSON)
 
         // Ao concluir o envio, armazena o retorno da API em "data".
         .done((data) => {

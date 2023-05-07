@@ -25,16 +25,10 @@
  * Algumas configurações do aplicativo.
  * Dica: você pode acrescentar novas configurações aqui se precisar.
  **/
-var apiBaseURL = 'http://localhost:3000/'
-var app = {
+const app = {
     siteName: 'FrontEndeiros',
     siteSlogan: 'Programando para o futuro',
-    apiContactsURL: apiBaseURL + 'contacts',
-    apiArticlesURL: apiBaseURL + 'articles?_sort=date&_order=desc&status=on',
-    apiArticleURL: apiBaseURL + 'articles/',
-    apiUserURL: apiBaseURL + 'users/',
-    apiCommentURL: apiBaseURL + 'comments?_sort=date&_order=desc&status=on',
-    apiCommentPostURL: apiBaseURL + 'comments'
+    apiBaseURL: 'http://localhost:3000/'
 }
 
 /**
@@ -62,25 +56,7 @@ $(document).ready(myApp)
  **/
 function myApp() {
 
-    onstorage = () => {
-
-        if (localStorage.popupConfirm) {
-            $('body').prepend(`
-            <div id="popup">
-                <div class="popup-body">
-                    <div class="popup-text">${localStorage.popupConfirm}</div>
-                    <div class="popup-close"><i class="fa-solid fa-xmark fa-fw"></i></div>
-                </div>
-            </div>
-            `)
-        }
-        delete localStorage.popupConfirm
-        $('.popup-close').click(() => { $('#popup').remove() })
-        setTimeout(() => {
-            $('#popup').remove()
-        }, parseInt(localStorage.popupTime) || 3000)
-
-    };
+    onstorage = popUpOpen
 
     // Monitora status de autenticação do usuário
     firebase.auth().onAuthStateChanged((user) => {
@@ -140,11 +116,15 @@ function myApp() {
 function fbLogin() {
     firebase.auth().signInWithPopup(provider)
         .then((user) => {
-
-            popUp(`Olá ${user.user.displayName}!`)
-
-            // Recarrega a página atual após o login.
+            popUp({ type: 'success', text: `Olá ${user.user.displayName}!` })
             loadpage(location.pathname.split('/')[1])
+        })
+        .catch((error) => {
+            try {
+                popUp({ type: 'error', text: 'Ooops! Popups estão bloqueados!<br>Por favor, libere-os!' })
+            } catch (e) {
+                alert('Ooops! Popups estão bloqueados!\nPor favor, libere-os!')
+            }
         })
 }
 
@@ -386,19 +366,63 @@ function stripHtml(html) {
     return doc.body.textContent || "";
 }
 
-/**
- * Converte a data 'system date' informada para 'pt-BR'.
- **/
-function sysToBrDate(systemDate, time = true) {
-    var parts = systemDate.split(' ')[0].split('-')
-    var out = `${parts[2]}/${parts[1]}/${parts[0]}`
-    if (time) out += ` às ${systemDate.split(' ')[1]}`
-    return out
+function popUp(params) {
+    const x = window.open('', 'popupWindow', 'width=1,height=1,left=10000');
+    x.localStorage.setItem('popUp', JSON.stringify(params));
+    x.close()
 }
 
-function popUp(text, time = 3000) {
-    const x = window.open('', 'popupWindow', 'width=1,height=1,left=10000');
-    x.localStorage.setItem('popupConfirm', text);
-    x.localStorage.setItem('popupTime', time);
-    x.close()
+function popUpOpen() {
+
+    if (localStorage.popUp) {
+
+        const pData = JSON.parse(localStorage.popUp)
+        var pStyle = ''
+
+        switch (pData.type) {
+            case 'error': pStyle = 'background-color: #f00; color: #fff'; break
+            case 'alert': pStyle = 'background-color: #ff0; color: #000'; break
+            case 'success': pStyle = 'background-color: #0f0; color: #000'; break
+            default: pStyle = 'background-color: #fff; color: #000'
+        }
+
+        $('body').prepend(`
+        <div id="popup">
+            <div class="popup-body" style="${pStyle}">
+                <div class="popup-text">${pData.text}</div>
+                <div class="popup-close"><i class="fa-solid fa-xmark fa-fw"></i></div>
+            </div>
+        </div>
+        `)
+
+        $('.popup-close').click(() => { $('#popup').remove() })
+        setTimeout(() => {
+            delete localStorage.popUp
+            $('#popup').remove()
+        }, parseInt(pData.time) || 3000)
+
+    }
+}
+
+const myDate = {
+
+    sysToBr: (systemDate, time = true) => {
+        var parts = systemDate.split(' ')[0].split('-')
+        var out = `${parts[2]}/${parts[1]}/${parts[0]}`
+        if (time) out += ` às ${systemDate.split(' ')[1]}`
+        return out
+    },
+
+    jsToBr: (jsDate, time = true) => {
+        var theDate = new Date(jsDate)
+        var out = theDate.toLocaleDateString('pt-BR')
+        if (time) out += ` às ${theDate.toLocaleTimeString('pt-BR')}`
+        return out
+    },
+
+    todayToSys: () => {
+        const today = new Date()
+        return today.toISOString().replace('T', ' ').split('.')[0]
+    }
+
 }
