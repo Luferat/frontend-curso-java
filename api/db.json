@@ -19,7 +19,11 @@
       "photo": "https://randomuser.me/api/portraits/men/3.jpg",
       "bio": "Programador, escultor, pintor, contornador e executor",
       "birth": "1998-10-04",
-      "social": "",
+      "social": {
+        "Facebook": "https://facebook.com/FronsEndeiros/Joca",
+        "Youtube": "https://youtube.com/FronsEndeiros/Joca",
+        "GitHub": "https://github.com/FrontEndeiros/Joca"
+      },
       "type": "author",
       "status": "on"
     },
@@ -31,7 +35,11 @@
       "photo": "https://randomuser.me/api/portraits/women/23.jpg",
       "bio": "Biografa, stenografa, fotografa e farofa",
       "birth": "2001-08-28",
-      "social": "",
+      "social": {
+        "Facebook": "https://facebook.com/FronsEndeiros/Maricleuza",
+        "Youtube": "https://youtube.com/FronsEndeiros/Maricleuza",
+        "GitHub": "https://github.com/FrontEndeiros/Maricleuza"
+      },
       "type": "moderator",
       "status": "on"
     },
@@ -42,7 +50,11 @@
       "photo": "https://randomuser.me/api/portraits/men/26.jpg",
       "bio": "Cantor, compositor, expositor, dispositor e instrutor.",
       "birth": "1984-11-27",
-      "social": "",
+      "social": {
+        "Facebook": "https://facebook.com/FronsEndeiros/Hermenildo",
+        "Youtube": "https://youtube.com/FronsEndeiros/Hermenildo",
+        "GitHub": "https://github.com/FrontEndeiros/Hermenildo"
+      },
       "type": "admin",
       "status": "on",
       "id": 3
@@ -56,7 +68,7 @@
       "thumbnail": "https://picsum.photos/200",
       "resume": "Aprenda a fazer alguma coisa que deve ser feita por quem sabe.",
       "content": "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos vel hic consectetur mollitia asperiores iste perspiciatis pariatur quo, aliquam dolorum odio rem, unde expedita cumque laudantium cum nam corporis aliquid!</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est vero officia ea, ex nisi ab laudantium rerum, consectetur excepturi sed amet consequatur expedita earum dignissimos! Cum perspiciatis nihil tempora quae.</p><img src=\"https://picsum.photos/300/400\" alt=\"Imagem aleatória\"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores quisquam culpa hic nulla in natus possimus nihil, quam assumenda blanditiis eaque non odit atque voluptates quibusdam, dolore esse soluta praesentium!</p><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem dolorem nam cum tenetur doloribus numquam ullam, non ea eius porro molestias, provident consequuntur dolore laudantium similique! Laudantium error quo veniam.</p><h4>Links:</h4><ul><li><a href=\"https://github.com\">Github</a></li><li><a href=\"https://firebase.com\">Firebase</a></li></ul><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quia, incidunt nobis ipsum suscipit accusamus nesciunt ratione laborum totam, eveniet blanditiis quae et ab quo ut delectus modi ex veniam!</p>",
-      "views": "13",
+      "views": "14",
       "status": "on",
       "id": 1,
       "[object Object]": ""
@@ -79,7 +91,7 @@
       "thumbnail": "https://picsum.photos/202",
       "resume": "Esse artigo ensina como fazer um artigo que ensina alguma coisa.",
       "content": "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos vel hic consectetur mollitia asperiores iste perspiciatis pariatur quo, aliquam dolorum odio rem, unde expedita cumque laudantium cum nam corporis aliquid!</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est vero officia ea, ex nisi ab laudantium rerum, consectetur excepturi sed amet consequatur expedita earum dignissimos! Cum perspiciatis nihil tempora quae.</p><img src=\"https://picsum.photos/300/400\" alt=\"Imagem aleatória\"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores quisquam culpa hic nulla in natus possimus nihil, quam assumenda blanditiis eaque non odit atque voluptates quibusdam, dolore esse soluta praesentium!</p><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem dolorem nam cum tenetur doloribus numquam ullam, non ea eius porro molestias, provident consequuntur dolore laudantium similique! Laudantium error quo veniam.</p><h4>Links:</h4><ul><li><a href=\"https://github.com\">Github</a></li><li><a href=\"https://firebase.com\">Firebase</a></li></ul><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quia, incidunt nobis ipsum suscipit accusamus nesciunt ratione laborum totam, eveniet blanditiis quae et ab quo ut delectus modi ex veniam!</p>",
-      "views": "13",
+      "views": "16",
       "status": "on",
       "id": 3
     },
@@ -90,7 +102,7 @@
       "thumbnail": "https://picsum.photos/199",
       "resume": "conheça o produto mais produzido na produção produtiva",
       "content": "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos vel hic consectetur mollitia asperiores iste perspiciatis pariatur quo, aliquam dolorum odio rem, unde expedita cumque laudantium cum nam corporis aliquid!</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est vero officia ea, ex nisi ab laudantium rerum, consectetur excepturi sed amet consequatur expedita earum dignissimos! Cum perspiciatis nihil tempora quae.</p><img src=\"https://picsum.photos/300/400\" alt=\"Imagem aleatória\"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores quisquam culpa hic nulla in natus possimus nihil, quam assumenda blanditiis eaque non odit atque voluptates quibusdam, dolore esse soluta praesentium!</p><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem dolorem nam cum tenetur doloribus numquam ullam, non ea eius porro molestias, provident consequuntur dolore laudantium similique! Laudantium error quo veniam.</p><h4>Links:</h4><ul><li><a href=\"https://github.com\">Github</a></li><li><a href=\"https://firebase.com\">Firebase</a></li></ul><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quia, incidunt nobis ipsum suscipit accusamus nesciunt ratione laborum totam, eveniet blanditiis quae et ab quo ut delectus modi ex veniam!</p>",
-      "views": "68",
+      "views": "91",
       "status": "on",
       "id": 4
     }
@@ -103,7 +115,7 @@
       "uid": "xvz40m7oj5YeG7nt0CEmA0ZC5j63",
       "article": "4",
       "content": "Comentário fake para testes",
-      "date": "2023-05-08 17:36:42",
+      "date": "2023-05-08 21:28:17",
       "status": "on",
       "id": 1
     },
@@ -112,9 +124,9 @@
       "photo": "https://lh3.googleusercontent.com/a/AGNmyxZH24HtNdsEEpmxHt97Whpea19iB-PcTJLVDzCDCQ=s96-c",
       "email": "andre@luferat.net",
       "uid": "xvz40m7oj5YeG7nt0CEmA0ZC5j63",
-      "article": "2",
-      "content": "Comentário fake para testes",
-      "date": "2023-05-08 17:41:26",
+      "article": "4",
+      "content": "Comentário fake para testes erewr we",
+      "date": "2023-05-08 21:28:46",
       "status": "on",
       "id": 2
     }

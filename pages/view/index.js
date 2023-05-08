@@ -14,7 +14,7 @@ function myView() {
             $('#artContent').html(artData.content)
             updateViews(artData)
             changeTitle(artData.title)
-            getAuthorDate(artData)
+            getAuthorData(artData)
             getAuthorArticles(artData, 5)
             getUserCommentForm(artData)
             getArticleComments(artData, 999)
@@ -26,16 +26,27 @@ function myView() {
 
 }
 
-function getAuthorDate(artData) {
+function getAuthorData(artData) {
     $.get(app.apiBaseURL + 'users/' + artData.author)
         .done((userData) => {
+
+            var socialList = ''
+            if (Object.keys(userData.social).length > 0) {
+                socialList = '<ul class="social-list">'
+                for (const social in userData.social) {
+                    socialList += `<li><a href="${userData.social[social]}" target="_blank">${social}</a></li>`
+                }
+                socialList += '</ul>'
+            }
+
             $('#artMetadata').html(`<span>Por ${userData.name}</span><span>em ${myDate.sysToBr(artData.date)}.</span>`)
             $('#artAuthor').html(`
-            <img src="${userData.photo}" alt="${userData.name}">
-            <h3>${userData.name}</h3>
-            <h5>${getAge(userData.birth)} anos</h5>
-            <p>${userData.bio}</p>
-        `)
+                <img src="${userData.photo}" alt="${userData.name}">
+                <h3>${userData.name}</h3>
+                <h5>${getAge(userData.birth)} anos</h5>
+                <p>${userData.bio}</p>
+                ${socialList}
+            `)
         })
         .fail((error) => {
             console.error(error)
@@ -49,7 +60,7 @@ function getAuthorArticles(artData, limit) {
         author: artData.author,
         status: 'on',
         id_ne: artData.id,
-        _limit: limit
+        _limit: limit || 5
     })
         .done((artsData) => {
             if (artsData.length > 0) {
@@ -78,7 +89,7 @@ function getArticleComments(artData, limit) {
         status: 'on',
         _sort: 'date',
         _order: 'desc',
-        _limit: limit
+        _limit: limit || 999
     })
         .done((cmtData) => {
             if (cmtData.length > 0) {
@@ -144,10 +155,10 @@ function sendComment(event, artData, userData) {
     sysdate = today.toISOString().replace('T', ' ').split('.')[0]
 
     $.get(app.apiBaseURL + 'comments', {
-            uid: userData.uid,
-            content: content,
-            article: artData.id
-        })
+        uid: userData.uid,
+        content: content,
+        article: artData.id
+    })
         .done((data) => {
             if (data.length > 0) {
                 popUp({ type: 'error', text: 'Ooops! Este comentário já foi enviado antes...' })

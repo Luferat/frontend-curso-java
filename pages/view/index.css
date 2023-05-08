@@ -115,9 +115,15 @@
     background-color: orangered;
 }
 
+.social-list {
+    font-size: small;
+    padding-left: 1.5rem;
+}
+
 @media screen and (min-width: 480px) {
 
-    .cmtMetatexts {
+    .cmtMetatexts,
+    #artMetadata {
         flex-direction: row;
     }
 
