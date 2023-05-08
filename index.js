@@ -395,13 +395,15 @@ function popUpOpen() {
         </div>
         `)
 
-        $('.popup-close').click(() => { $('#popup').remove() })
-        setTimeout(() => {
-            delete localStorage.popUp
-            $('#popup').remove()
-        }, parseInt(pData.time) || 3000)
+        $('.popup-close').click(popUpClose)
+        setTimeout(popUpClose, parseInt(pData.time) || 3000)
 
     }
+}
+
+function popUpClose() {
+    delete localStorage.popUp
+    $('#popup').remove()
 }
 
 const myDate = {

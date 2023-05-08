@@ -127,6 +127,7 @@ function getUserCommentForm(artData) {
             })
         } else {
             cmtForm = `<p class="center"><a href="login">Logue-se</a> para comentar.</p>`
+            $('#commentForm').html(cmtForm)
         }
     })
 
