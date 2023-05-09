@@ -56,6 +56,10 @@ $(document).ready(myApp)
  **/
 function myApp() {
 
+    /**
+     * Monitora alterações no 'storage local' do navegador.
+     * Quando ocorrer, chama a função 'popUpOpen()'.
+     **/
     onstorage = popUpOpen
 
     // Monitora status de autenticação do usuário
@@ -114,12 +118,27 @@ function myApp() {
 
 // Faz login do usuário usando o Firebase Authentication
 function fbLogin() {
+
+    // Usa login pelo método popUp.
     firebase.auth().signInWithPopup(provider)
+
+        // Quando fizer login...
         .then((user) => {
+
+            // Exibe um popUp para o usuário, confirmando o login.
             popUp({ type: 'success', text: `Olá ${user.user.displayName}!` })
+
+            // Recarrega a página atual.
             loadpage(location.pathname.split('/')[1])
         })
+
+        // Se ocorreu falha...
         .catch((error) => {
+
+            /**
+             * A maior parte das falhas ocorre por conta dos 'popUps' bloqueados pelo navegador.
+             * Esse trecho exibe uma mensagem para que o usuário 'desbloqueie' popUps para nosso site.
+             **/
             try {
                 popUp({ type: 'error', text: 'Ooops! Popups estão bloqueados!<br>Por favor, libere-os!' })
             } catch (e) {
@@ -328,6 +347,7 @@ function changeTitle(title = '') {
  * Calcula a idade com base na data (system date).
  **/
 function getAge(sysDate) {
+    
     // Obtendo partes da data atual.
     const today = new Date()
     const tYear = today.getFullYear()
@@ -366,19 +386,49 @@ function stripHtml(html) {
     return doc.body.textContent || "";
 }
 
+/**
+ * Cria um popUp passando parâmetros em um objeto:
+ *  • text → string:  texto a ser exibido no popUp. Obrigatório.
+ *  • type → string: ['error', 'alert', 'success', none] → default: none
+ *  • time → integer: tempo para fechamento do popUp em segundos. Default: 3 segundos
+ * Essa função exibe os resultados diretamente no 'localStorage' e não tem retorno.
+ **/
 function popUp(params) {
+
+    /**
+     * O procedimento abaixo, de criar uma nova janela, é necessário porque o 
+     * navegador não monitora alterações no storage da página atual.
+     **/
+
+    // Cria uma nova janela do navegador.
     const x = window.open('', 'popupWindow', 'width=1,height=1,left=10000');
+
+    // Cria um 'localStorage.popUp' na nova janela e armazena o objeto nele.
     x.localStorage.setItem('popUp', JSON.stringify(params));
+
+    // Apaga a janela criada.
     x.close()
 }
 
+/**
+ * Processa mudanças no 'localStorage' do navegador.
+ * Essa função exibe os resultados diretamente na 'view' e não tem retorno.
+ **/
 function popUpOpen() {
 
+    // Se existe 'localStorage.popUp'...
     if (localStorage.popUp) {
 
+        // Converte os dados (JSON) do 'localStorage.popUp' em objeto.
         const pData = JSON.parse(localStorage.popUp)
+
+        // Elimina o localStorage com o popUp.
+        delete localStorage.popUp
+
+        // Inicializa o estilo do popUp.
         var pStyle = ''
 
+        // Gera o CSS conforme o tipo de popUp.
         switch (pData.type) {
             case 'error': pStyle = 'background-color: #f00; color: #fff'; break
             case 'alert': pStyle = 'background-color: #ff0; color: #000'; break
@@ -386,6 +436,7 @@ function popUpOpen() {
             default: pStyle = 'background-color: #fff; color: #000'
         }
 
+        // Exibe o popUp na view.
         $('body').prepend(`
         <div id="popup">
             <div class="popup-body" style="${pStyle}">
@@ -395,19 +446,35 @@ function popUpOpen() {
         </div>
         `)
 
+        // Monitora cliques no 'x' de fechamento do popUp. Se ocorrer, chama 'popUpClose()'.
         $('.popup-close').click(popUpClose)
-        setTimeout(popUpClose, parseInt(pData.time) || 3000)
+
+        // Incia timer para fechar o popUp caso o usuário não feche.
+        setTimeout(popUpClose, parseInt(pData.time) * 1000 || 3000)
 
     }
 }
 
+/**
+ * Fecha um popUp aberto.
+ * Essa função exibe os resultados diretamente na 'view' e não tem retorno.
+ */
 function popUpClose() {
-    delete localStorage.popUp
+
+    // Elimina a view do popUp.
     $('#popup').remove()
 }
 
+/**
+ * Diversas funções de tratamento de datas.
+ * Outras funções de data podem ser adicionadas.
+ **/
 const myDate = {
 
+    /**
+     * Converte uma "system date" em formato "pt-BR".
+     * Se o parâmetro "time = false", mostra só a data.
+     */
     sysToBr: (systemDate, time = true) => {
         var parts = systemDate.split(' ')[0].split('-')
         var out = `${parts[2]}/${parts[1]}/${parts[0]}`
@@ -415,6 +482,10 @@ const myDate = {
         return out
     },
 
+    /**
+     * Converte uma "JavaScript date" (Obtida do Firebase) em formato "pt-BR".
+     * Se o parâmetro "time = false", mostra só a data.
+     **/
     jsToBr: (jsDate, time = true) => {
         var theDate = new Date(jsDate)
         var out = theDate.toLocaleDateString('pt-BR')
@@ -422,6 +493,9 @@ const myDate = {
         return out
     },
 
+    /**
+     * Obtém a data atual do systema para "system date".
+     **/
     todayToSys: () => {
         const today = new Date()
         return today.toISOString().replace('T', ' ').split('.')[0]
