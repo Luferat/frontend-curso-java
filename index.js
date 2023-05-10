@@ -58,6 +58,10 @@ function myApp() {
 
     onstorage = popUpOpen
 
+    // Aviso de cookies → Exibir aviso.
+    if (cookie.get('acceptCookies') == 'on') $('#aboutCookies').hide()
+    else $('#aboutCookies').show()
+
     // Monitora status de autenticação do usuário
     firebase.auth().onAuthStateChanged((user) => {
 
@@ -108,7 +112,22 @@ function myApp() {
     /**
      * Quando clicar em um artigo.
      **/
-    $(document).on('click', '.art-item', loadArticle)
+    $(document).on('click', '.article', loadArticle)
+
+    /**
+     * Aviso de cookies → Políticas de privacidade.
+     **/
+    $('#policies').click(() => {
+        loadpage('policies')
+    })
+
+    /**
+     * Aviso de cookies → Aceito.
+     **/
+    $('#accept').click(() => {
+        cookie.set('acceptCookies', 'on', 365)
+        $('#aboutCookies').hide()
+    })
 
 }
 
@@ -427,4 +446,41 @@ const myDate = {
         return today.toISOString().replace('T', ' ').split('.')[0]
     }
 
+}
+
+String.prototype.truncate = String.prototype.truncate ||
+    function (n, useWordBoundary) {
+        if (this.length <= n) { return this; }
+        const subString = this.slice(0, n - 1);
+        return (useWordBoundary
+            ? subString.slice(0, subString.lastIndexOf(" "))
+            : subString) + "&hellip;";
+    };
+
+Object.defineProperty(String.prototype, 'capitalize', {
+    value: function () {
+        return this.charAt(0).toUpperCase() + this.slice(1);
+    },
+    enumerable: false
+});
+
+const cookie = {
+    set: (cname, cvalue, exdays) => {
+        const d = new Date()
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000))
+        let expires = 'expires=' + d.toUTCString()
+        document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/'
+    },
+
+    get: (cname) => {
+        let name = cname + '='
+        let decodedCookie = decodeURIComponent(document.cookie)
+        let ca = decodedCookie.split(';')
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i]
+            while (c.charAt(0) == ' ') c = c.substring(1)
+            if (c.indexOf(name) == 0) return c.substring(name.length, c.length)
+        }
+        return ''
+    }
 }

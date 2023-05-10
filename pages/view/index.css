@@ -40,12 +40,14 @@
     margin-right: .5rem;
 }
 
-.cmtMetatexts {
+.cmtMetatexts,
+#artMetadata {
     flex-direction: column;
     align-items: flex-start;
 }
 
-.cmtMetatexts span:first-child::after {
+.cmtMetatexts span:first-child::after,
+#artMetadata span:first-child::after {
     content: "\00a0";
 }
 
@@ -85,22 +87,6 @@
     margin-top: .25rem;
 }
 
-#authorArtcicles ul {
-    padding: 0;
-    padding-left: 1rem;
-}
-
-#authorArtcicles ul li {
-    color: steelblue;
-    cursor: pointer;
-    margin-top: .25rem;
-}
-
-#authorArtcicles ul li:hover {
-    color: orangered;
-    text-decoration: underline;
-}
-
 #commentForm {
     width: 100%;
     margin: auto;
@@ -115,9 +101,16 @@
     background-color: orangered;
 }
 
+.social-list {
+    font-size: small;
+    padding-left: 1rem;
+    list-style: none;
+}
+
 @media screen and (min-width: 480px) {
 
-    .cmtMetatexts {
+    .cmtMetatexts,
+    #artMetadata {
         flex-direction: row;
     }
 

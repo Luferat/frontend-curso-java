@@ -18,6 +18,26 @@ function myContacts() {
      **/
     changeTitle('Faça contato')
 
+    // Monitora status de autenticação do usuário
+    firebase.auth().onAuthStateChanged((user) => {
+
+        // Se o usuário está logado...
+        if (user) {
+
+            // Preenche campos do formulário.
+            $('#name').val(user.displayName)
+            $('#email').val(user.email)
+
+            // Foca no assunto.
+            $('#subject').focus()
+
+        } else {
+
+            // Foca no nome.
+            $('#name').focus()
+        }
+    });
+
     /**
      * Promise do formulário de contatos.
      * Quando o formulário for enviado (onsubmit), executa a função

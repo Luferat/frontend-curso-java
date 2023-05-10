@@ -1,1 +1,41 @@
 /* Folhas de estilo de home. */
+
+#usersGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.users-grid-item {
+    display: flex;
+    flex-direction: column;
+    max-width: 150px;
+    background-color: rgb(189, 189, 189);
+    margin: 0 .25rem 1rem .25rem;
+    border-radius: .3rem;
+}
+
+.users-grid-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: .3rem .3rem 0 0;
+}
+
+.users-grid-item h4 {
+    margin: 0;
+    padding: .25rem .5rem 0 .5rem;
+}
+
+.users-grid-item small {
+    display: block;
+    font-size: 65%;
+    padding: 0 .5rem .5rem .5rem;
+    flex-grow: 1;
+}
+
+.users-grid-item ul {
+    margin: 0;
+    padding: .5rem .5rem .5rem 1.5rem;
+    font-size: 75%;
+}

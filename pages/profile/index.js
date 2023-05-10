@@ -21,7 +21,6 @@ function myProfile() {
     <img src="${user.photoURL}" alt="${user.displayName}">
     <h3>${user.displayName}</h3>
     <ul>
-        <li><strong>Id local:</strong> ${user.uid}</li>
         <li><strong>E-mail:</strong> ${user.email}</li>
         <li><strong>Cadastro:</strong> ${myDate.jsToBr(user.metadata.creationTime)}</li>
         <li><strong>Último login:</strong> ${myDate.jsToBr(user.metadata.lastSignInTime)}</li>

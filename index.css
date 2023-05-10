@@ -209,6 +209,30 @@ body {
     padding: 0 1rem;
 }
 
+/*********/
+/* aside */
+/*********/
+
+main aside ul {
+    font-size: 95%;
+    padding: 0;
+    padding-left: 1rem;
+}
+
+main aside ul li {
+    margin-top: .25rem;
+}
+
+main aside ul li.article {
+    color: steelblue;
+    cursor: pointer;
+}
+
+main aside ul li.article:hover {
+    color: orangered;
+    text-decoration: underline;
+}
+
 /******************/
 /* Rodapé do tema */
 /******************/
@@ -289,7 +313,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 6rem;
+    font-size: 4rem;
     color: grey;
 }
 
@@ -373,6 +397,45 @@ form button:disabled {
 .popup-close {
     font-size: 1.5rem;
     margin-left: 1rem;
+}
+
+/************************/
+/* Mensagens de cookies */
+/************************/
+
+#aboutCookies {
+    display: none;
+}
+
+.cookie-modal {
+    position: fixed;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, .5);
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem;
+}
+
+.cookie-body {
+    display: table;
+    background-color: #ddd;
+    padding: .5rem;
+    border-radius: .3rem;
+    margin: auto;
+}
+
+.cookie-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-top: .5rem;
+}
+
+.cookie-buttons button {
+    font-size: 90%;
+    margin: .25rem;
 }
 
 /**************************************************/
