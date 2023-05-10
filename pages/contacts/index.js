@@ -31,6 +31,7 @@ function myContacts() {
             // Foca no assunto.
             $('#subject').focus()
 
+            // Se não está logado...
         } else {
 
             // Foca no nome.
