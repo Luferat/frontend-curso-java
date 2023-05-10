@@ -419,7 +419,7 @@ form button:disabled {
 
 .cookie-body {
     display: table;
-    background-color: #ddd;
+    background-color: #ffc;
     padding: .5rem;
     border-radius: .3rem;
     margin: auto;
@@ -434,7 +434,7 @@ form button:disabled {
 }
 
 .cookie-buttons button {
-    font-size: 90%;
+    font-size: 85%;
     margin: .25rem;
 }
 
