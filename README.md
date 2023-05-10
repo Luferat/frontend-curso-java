@@ -72,4 +72,4 @@ http-server
 > Observe que, à partir de agora, precisamos de 2 "**Node.js command prompt**" abertos ao mesmo tempo. No primeiro teremos nossa "**API Fake**" rodando o `json-server` e no outro, a instância do servidor Web com nosso `front-end`.
 
 ### Front-end
-Para testar o aplicativo, abra o navegador e acesse o endereço informado pelo `http-server` quando foi iniciado.: normalmente `http://localhost:8080`.
+Para testar o aplicativo, abra o navegador e acesse o endereço informado pelo `http-server` quando foi iniciado, normalmente `http://localhost:8080`.
