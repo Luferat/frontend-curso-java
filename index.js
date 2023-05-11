@@ -484,3 +484,47 @@ const cookie = {
         return ''
     }
 }
+
+function getUsersTeam(limit) {
+    var htmlOut = ''
+    $.get(app.apiBaseURL + 'users', {
+        status: 'on',
+        _sort: 'name',
+        _order: 'asc'
+    })
+        .done((data) => {
+            data.forEach((item) => {
+                var type
+                switch (item.type) {
+                    case 'admin': type = 'Administrador(a)'; break
+                    case 'author': type = 'Autor(a)'; break
+                    case 'moderator': type = 'Moderador(a)'; break
+                    default: type = 'Colaborador(a)'
+                }
+
+                htmlOut += `
+                    <div class="userclick users-grid-item" data-id="${item.id}">
+                        <img src="${item.photo}" alt="${item.name}">
+                        <h4>${item.name.split(' ')[0]}</h4>
+                        <small>${item.name}</small>
+                        <ul>
+                            <li>${getAge(item.birth)} anos</li>
+                            <li>${type}
+                        </ul>
+                    </div>
+                `
+            })
+
+            $('#usersGrid').html(htmlOut)
+
+            $('.userclick').click(openProfile)
+
+        })
+
+}
+
+function openProfile() {
+    const userId = parseInt($(this).attr('data-id'))
+    sessionStorage.userId = userId
+    loadpage('aboutus')
+}
