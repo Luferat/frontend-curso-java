@@ -1,3 +1,10 @@
+/**
+ * FrontEndeiros 1.0
+ * /pages/aboutus/index.js - Controller  de aboutus
+ * By Luferat
+ * MIT License 2023 
+ **/
+
 $(document).ready(myAbout)
 
 function myAbout() {

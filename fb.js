@@ -4,12 +4,7 @@
  * MIT License 
  **/
 
-/**
- * Configurações so Firebase
- * 
- * IMPORTANTE!
- * Troque os valores de 'firebaseConfig' pelos dados do SEU FIREBASE!
- **/
+// Configurações so Firebase
 const firebaseConfig = {
     apiKey: "AIzaSyBicr7VwgcQfN5aclocvQ846BN4Z2k7NH0",
     authDomain: "frontendeiros2.firebaseapp.com",

@@ -1,7 +1,8 @@
 /**
- * Contacts Control
+ * FrontEndeiros 1.0
+ * /pages/contacts/index.js - Controller de contacts
  * By Luferat
- * MIT License 
+ * MIT License 2023 
  **/
 
 // Executa 'myContacts()' quando o documento estiver pronto.
