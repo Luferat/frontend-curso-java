@@ -7,7 +7,7 @@ function myAbout() {
 
     if (sessionStorage.userId) {
         var userId = parseInt(sessionStorage.userId)
-        delete sessionStorage.userId
+        // delete sessionStorage.userId
 
         $.get(app.apiBaseURL + 'users', {
             id: userId,
