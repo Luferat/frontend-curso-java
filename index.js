@@ -28,7 +28,8 @@
 const app = {
     siteName: 'FrontEndeiros',
     siteSlogan: 'Programando para o futuro',
-    apiBaseURL: 'http://localhost:3000/'
+    // apiBaseURL: 'http://localhost/'
+    apiBaseURL: 'https://myfeapi.onrender.com/'
 }
 
 /**
@@ -178,12 +179,17 @@ function routerLink() {
      *  • https://www.w3schools.com/jsref/jsref_substr.asp
      *  • https://www.w3schools.com/js/js_comparisons.asp
      **/
+
+    if(href.substring(0, 1) == '#') {
+        window.scrollTo(0, 0)
+        return false
+    }
+
     if (
         href.substring(0, 7) == 'http://' ||
         href.substring(0, 8) == 'https://' ||
         href.substring(0, 4) == 'tel:' ||
-        href.substring(0, 7) == 'mailto:' ||
-        href.substring(0, 1) == '#'
+        href.substring(0, 7) == 'mailto:'
     )
         // Devolve o controle para o HTML.
         return true

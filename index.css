@@ -317,6 +317,11 @@ main aside ul li.article:hover {
     color: grey;
 }
 
+.responsive {
+    max-width: 100%;
+    height: auto;
+}
+
 /***************/
 /* Formulários */
 /***************/
