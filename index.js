@@ -178,7 +178,7 @@ function stripHTML(html) {
 }
 
 // Exibe um banner popup.
-// Parâmetros: type: String, text: String, time: Seconds
+// Parâmetros → type: String, text: String, time: Seconds
 function popUp(pData) {
 
     var pStyle = ''
@@ -257,7 +257,6 @@ const cookie = {
         let expires = 'expires=' + d.toUTCString()
         document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/'
     },
-
     get: (cname) => {
         let name = cname + '='
         let decodedCookie = decodeURIComponent(document.cookie)
