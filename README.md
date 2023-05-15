@@ -52,7 +52,7 @@ node index.js
 >**Lembre-se!**
 > Sempre que fizer alterações no arquivo "db.json", pode ser que a "API Fake" pare de funcionar. Nesse caso, interrompa o `json-server` teclando ``[Ctrl] + [C]`` no "**Node.js command prompt**" onde a API está rodando e reinicie-a com o comando `json-server --watch db.json`.
 
-## API as a Module
+### API as a Module
 Desde a versão ``2023.05.05`` do aplicativo, trocamos o "json-server" que rodava na forma de aplicativo, em uma instalação global, para uma versão modular que é instalada dentro da própria "API". Essa é uma etapa de preparação para fazer experimentos com a "API" publicada na Web.
 
 Com isso, observe que o comando para inicializar a **API Fake** mudou de ``json-server --watch db.json`` para ``node index.js``. A porta HTTP também passa a ser ``80``, porta padrão do HTTP. Isso é configurável diretamente em ``/api/index.js`` se você precisar. Sempre que clonar o repositório em um novo local, será necessário instalar as dependências comandando ``npm install`` dentro da pasta ``/api``.
