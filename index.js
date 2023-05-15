@@ -9,7 +9,7 @@
 const app = {
     siteName: 'FrontEndeiros',
     siteSlogan: 'Programando para o futuro',
-    apiBaseURL: 'http://localhost/'
+    apiBaseURL: 'https://myfeapi.onrender.com/'
 }
 
 // Chama aplicativo principal.
