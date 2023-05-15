@@ -1,24 +1,5 @@
 {
-  "contacts": [
-    {
-      "name": "Setembrino Trocatapas",
-      "email": "andre.ataide@rj.senac.br",
-      "subject": "Teste da Maria",
-      "message": "dsfsdfdsfsdf",
-      "date": "2023-05-11 21:40:50",
-      "status": "received",
-      "id": 1
-    },
-    {
-      "name": "Setembrino",
-      "email": "set@brino",
-      "subject": "Contato",
-      "message": "sd gsd fgsdag fsadg sd",
-      "date": "2023-05-11 21:48:05",
-      "status": "received",
-      "id": 2
-    }
-  ],
+  "contacts": [],
   "users": [
     {
       "id": 1,
@@ -77,7 +58,7 @@
       "thumbnail": "https://picsum.photos/200",
       "resume": "Aprenda a fazer alguma coisa que deve ser feita por quem sabe.",
       "content": "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos vel hic consectetur mollitia asperiores iste perspiciatis pariatur quo, aliquam dolorum odio rem, unde expedita cumque laudantium cum nam corporis aliquid!</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est vero officia ea, ex nisi ab laudantium rerum, consectetur excepturi sed amet consequatur expedita earum dignissimos! Cum perspiciatis nihil tempora quae.</p><img src=\"https://picsum.photos/300/400\" alt=\"Imagem aleatória\"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores quisquam culpa hic nulla in natus possimus nihil, quam assumenda blanditiis eaque non odit atque voluptates quibusdam, dolore esse soluta praesentium!</p><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem dolorem nam cum tenetur doloribus numquam ullam, non ea eius porro molestias, provident consequuntur dolore laudantium similique! Laudantium error quo veniam.</p><h4>Links:</h4><ul><li><a href=\"https://github.com\">Github</a></li><li><a href=\"https://firebase.com\">Firebase</a></li></ul><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quia, incidunt nobis ipsum suscipit accusamus nesciunt ratione laborum totam, eveniet blanditiis quae et ab quo ut delectus modi ex veniam!</p>",
-      "views": "13",
+      "views": "29",
       "status": "on",
       "id": 1,
       "[object Object]": ""
@@ -100,7 +81,7 @@
       "thumbnail": "https://picsum.photos/202",
       "resume": "Esse artigo ensina como fazer um artigo que ensina alguma coisa.",
       "content": "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos vel hic consectetur mollitia asperiores iste perspiciatis pariatur quo, aliquam dolorum odio rem, unde expedita cumque laudantium cum nam corporis aliquid!</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est vero officia ea, ex nisi ab laudantium rerum, consectetur excepturi sed amet consequatur expedita earum dignissimos! Cum perspiciatis nihil tempora quae.</p><img src=\"https://picsum.photos/300/400\" alt=\"Imagem aleatória\"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores quisquam culpa hic nulla in natus possimus nihil, quam assumenda blanditiis eaque non odit atque voluptates quibusdam, dolore esse soluta praesentium!</p><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem dolorem nam cum tenetur doloribus numquam ullam, non ea eius porro molestias, provident consequuntur dolore laudantium similique! Laudantium error quo veniam.</p><h4>Links:</h4><ul><li><a href=\"https://github.com\">Github</a></li><li><a href=\"https://firebase.com\">Firebase</a></li></ul><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quia, incidunt nobis ipsum suscipit accusamus nesciunt ratione laborum totam, eveniet blanditiis quae et ab quo ut delectus modi ex veniam!</p>",
-      "views": "19",
+      "views": "27",
       "status": "on",
       "id": 3
     },
@@ -111,7 +92,7 @@
       "thumbnail": "https://picsum.photos/199",
       "resume": "Conheça o produto mais produzido na produção produtiva",
       "content": "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos vel hic consectetur mollitia asperiores iste perspiciatis pariatur quo, aliquam dolorum odio rem, unde expedita cumque laudantium cum nam corporis aliquid!</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est vero officia ea, ex nisi ab laudantium rerum, consectetur excepturi sed amet consequatur expedita earum dignissimos! Cum perspiciatis nihil tempora quae.</p><img src=\"https://picsum.photos/300/400\" alt=\"Imagem aleatória\"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores quisquam culpa hic nulla in natus possimus nihil, quam assumenda blanditiis eaque non odit atque voluptates quibusdam, dolore esse soluta praesentium!</p><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem dolorem nam cum tenetur doloribus numquam ullam, non ea eius porro molestias, provident consequuntur dolore laudantium similique! Laudantium error quo veniam.</p><h4>Links:</h4><ul><li><a href=\"https://github.com\">Github</a></li><li><a href=\"https://firebase.com\">Firebase</a></li></ul><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quia, incidunt nobis ipsum suscipit accusamus nesciunt ratione laborum totam, eveniet blanditiis quae et ab quo ut delectus modi ex veniam!</p>",
-      "views": "92",
+      "views": "117",
       "status": "on",
       "id": 4
     },
@@ -122,55 +103,10 @@
       "thumbnail": "https://picsum.photos/198",
       "resume": "É sempre assim. Quando alguma coisa acontece e nada aconteceu de verdade.",
       "content": "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos vel hic consectetur mollitia asperiores iste perspiciatis pariatur quo, aliquam dolorum odio rem, unde expedita cumque laudantium cum nam corporis aliquid!</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est vero officia ea, ex nisi ab laudantium rerum, consectetur excepturi sed amet consequatur expedita earum dignissimos! Cum perspiciatis nihil tempora quae.</p><img src=\"https://picsum.photos/300/400\" alt=\"Imagem aleatória\"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores quisquam culpa hic nulla in natus possimus nihil, quam assumenda blanditiis eaque non odit atque voluptates quibusdam, dolore esse soluta praesentium!</p><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem dolorem nam cum tenetur doloribus numquam ullam, non ea eius porro molestias, provident consequuntur dolore laudantium similique! Laudantium error quo veniam.</p><h4>Links:</h4><ul><li><a href=\"https://github.com\">Github</a></li><li><a href=\"https://firebase.com\">Firebase</a></li></ul><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, quia, incidunt nobis ipsum suscipit accusamus nesciunt ratione laborum totam, eveniet blanditiis quae et ab quo ut delectus modi ex veniam!</p>",
-      "views": "25",
+      "views": "48",
       "status": "on",
       "id": 5
     }
   ],
-  "comments": [
-    {
-      "name": "André Luferat",
-      "photo": "https://lh3.googleusercontent.com/a/AGNmyxZH24HtNdsEEpmxHt97Whpea19iB-PcTJLVDzCDCQ=s96-c",
-      "email": "andre@luferat.net",
-      "uid": "xvz40m7oj5YeG7nt0CEmA0ZC5j63",
-      "article": "4",
-      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est vero officia ea, ex nisi ab laudantium rerum, consectetur.",
-      "date": "2023-05-10 19:34:29",
-      "status": "on",
-      "id": 1
-    },
-    {
-      "name": "André Luferat",
-      "photo": "https://lh3.googleusercontent.com/a/AGNmyxZH24HtNdsEEpmxHt97Whpea19iB-PcTJLVDzCDCQ=s96-c",
-      "email": "andre@luferat.net",
-      "uid": "xvz40m7oj5YeG7nt0CEmA0ZC5j63",
-      "article": "4",
-      "content": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem dolorem nam cum tenetur doloribus numquam ullam, non ea eius porro molestias, provident consequuntur dolore laudantium similique! Laudantium error quo veniam.",
-      "date": "2023-05-10 19:34:57",
-      "status": "on",
-      "id": 2
-    },
-    {
-      "name": "André Luferat",
-      "photo": "https://lh3.googleusercontent.com/a/AGNmyxZH24HtNdsEEpmxHt97Whpea19iB-PcTJLVDzCDCQ=s96-c",
-      "email": "andre@luferat.net",
-      "uid": "xvz40m7oj5YeG7nt0CEmA0ZC5j63",
-      "article": "5",
-      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores quisquam culpa hic nulla in natus possimus nihil, quam assumenda blanditiis eaque non odit atque voluptates quibusdam, dolore esse soluta praesentium!\n\nLorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem dolorem nam cum tenetur doloribus numquam ullam, non ea eius porro molestias, provident consequuntur dolore laudantium similique! Laudantium error quo veniam.\n\nLorem ipsum dolor sit amet consectetur adipisicing elit. Maiores quisquam culpa hic nulla in natus possimus nihil, quam assumenda blanditiis eaque non odit atque voluptates quibusdam, dolore esse soluta praesentium!\n\nLorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem dolorem nam cum tenetur doloribus numquam ullam, non ea eius porro molestias, provident consequuntur dolore laudantium similique! Laudantium error quo veniam.",
-      "date": "2023-05-10 19:37:00",
-      "status": "on",
-      "id": 3
-    },
-    {
-      "name": "André Luferat",
-      "photo": "https://lh3.googleusercontent.com/a/AGNmyxZH24HtNdsEEpmxHt97Whpea19iB-PcTJLVDzCDCQ=s96-c",
-      "email": "andre@luferat.net",
-      "uid": "xvz40m7oj5YeG7nt0CEmA0ZC5j63",
-      "article": "5",
-      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores quisquam culpa hic nulla in natus possimus nihil, quam assumenda blanditiis eaque non odit atque voluptates quibusdam, dolore esse soluta praesentium!\n\nLorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem dolorem nam cum tenetur doloribus numquam ullam, non ea eius porro molestias, provident consequuntur dolore laudantium similique! Laudantium error quo veniam.",
-      "date": "2023-05-10 19:37:18",
-      "status": "on",
-      "id": 4
-    }
-  ]
+  "comments": []
 }

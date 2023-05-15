@@ -1,3 +1,10 @@
+/**
+ * FrontEndeiros 1.0
+ * /pages/view/index.js - Controller de view
+ * By Luferat
+ * MIT License 2023 
+ **/
+
 $(document).ready(myView)
 
 function myView() {
@@ -149,7 +156,7 @@ function getUserCommentForm(artData) {
 function sendComment(event, artData, userData) {
 
     event.preventDefault()
-    var content = stripHtml($('#txtContent').val().trim())
+    var content = stripHTML($('#txtContent').val().trim())
     $('#txtContent').val(content)
     if (content == '') return false
 

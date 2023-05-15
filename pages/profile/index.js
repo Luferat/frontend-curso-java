@@ -1,3 +1,10 @@
+/**
+ * FrontEndeiros 1.0
+ * /pages/profile/index.js - Controller de profile
+ * By Luferat
+ * MIT License 2023 
+ **/
+
 $(document).ready(myProfile)
 
 function myProfile() {
@@ -84,7 +91,7 @@ function toProfile() {
 function logout() {
     firebase.auth().signOut()
     popUp({ type: 'alert', text: 'Você saiu do aplicativo.' })
-    loadpage('home')
+    window.location.href = 'home'
 }
 
 // Acessa as permissões de aplicativos do usuário no Google.

@@ -377,6 +377,7 @@ form button:disabled {
 /* popup */
 /*********/
 
+/*
 #popup {
     position: fixed;
     top: 0;
@@ -403,6 +404,7 @@ form button:disabled {
     font-size: 1.5rem;
     margin-left: 1rem;
 }
+*/
 
 /************************/
 /* Mensagens de cookies */
