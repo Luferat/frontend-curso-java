@@ -13,11 +13,7 @@ function myHome() {
 
     var articleList = '';
 
-    $.get(app.apiBaseURL + 'articles', {
-        _sort: 'date',
-        _order: 'desc',
-        status: 'on'
-    })
+    $.get(app.apiBaseURL + 'articles')
         .done((data) => {
             data.forEach((art) => {
                 articleList += `
@@ -31,12 +27,9 @@ function myHome() {
                 `
             })
             $('#artList').html(articleList)
+            getMostViewed(5)
+            getLastComments(5)
 
-            getMostViewed()
-            getLastComments()
-        })
-        .fail((error) => {
-            $('#artList').html('<p class="center">Oooops! Não encontramos nenhum artigo...</p>')
         })
 
 }
@@ -45,12 +38,7 @@ function getMostViewed(limit) {
 
     var htmlOut = ''
 
-    $.get(app.apiBaseURL + 'articles', {
-        status: 'on',
-        _sort: 'views',
-        _order: 'desc',
-        _limit: limit || 5
-    })
+    $.get(app.apiBaseURL + 'articles/views/' + limit)
         .done((data) => {
             if (data.length > 0) {
                 htmlOut = '<ul>'
@@ -64,9 +52,6 @@ function getMostViewed(limit) {
 
             $('#mostVisited').html(htmlOut)
         })
-        .fail((error) => {
-            $('#mostVisited').html('<p class="center">Nenhum artigo encontrado.</p>')
-        })
 
 }
 
@@ -74,27 +59,18 @@ function getLastComments(limit) {
 
     var htmlOut = ''
 
-    $.get(app.apiBaseURL + 'comments', {
-        status: 'on',
-        _sort: 'date',
-        _order: 'desc',
-        _limit: limit || 5
-    })
+    $.get(app.apiBaseURL + 'comments/last/' + limit)
         .done((data) => {
             if (data.length > 0) {
                 htmlOut = '<ul>'
                 data.forEach((item) => {
-                    htmlOut += `<li class="article" data-id="${item.article}">${item.content.truncate(45)}</li>`
+                    htmlOut += `<li class="article" data-id="${item.article}">${item.comment}</li>`
                 })
                 htmlOut += '</ul>'
             } else {
                 htmlOut = '<p class="center">Nenhum comentário ainda.</p>'
             }
-
             $('#lastComments').html(htmlOut)
-        })
-        .fail((error) => {
-            $('#lastComments').html('<p class="center">Nenhum comentário ainda.</p>')
         })
 
 }

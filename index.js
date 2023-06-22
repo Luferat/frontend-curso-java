@@ -9,7 +9,7 @@
 const app = {
     siteName: 'FrontEndeiros',
     siteSlogan: 'Programando para o futuro',
-    apiBaseURL: 'http://localhost/'
+    apiBaseURL: 'http://localhost:8080/'
 }
 
 // Chama aplicativo principal.
