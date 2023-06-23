@@ -16,36 +16,21 @@ function myAbout() {
         var userId = parseInt(sessionStorage.userId)
         // delete sessionStorage.userId
 
-        $.get(app.apiBaseURL + 'users', {
-            id: userId,
-            status: 'on'
-        })
+
+        $.get(app.apiBaseURL + `users/${userId}`)
             .done((data) => {
-                var userData = data[0]
-
-                var socialList = ''
-                if (Object.keys(userData.social).length > 0) {
-                    socialList = '<ul class="social-list">'
-                    for (const social in userData.social) {
-                        socialList += `<li><a href="${userData.social[social]}" target="_blank"><i class="fa-brands fa-fw fa-${social.toLowerCase()}"></i> ${social}</a></li>`
-                    }
-                    socialList += '</ul>'
-                }
-
+                var userData = data
                 $('#userProfile').html(`
                     <img src="${userData.photo}" alt="${userData.name}">
                     <h3>${userData.name}</h3>
                     <h5>${getAge(userData.birth)} anos</h5>
                     <p>${userData.bio}</p>
-                    ${socialList}
+                    <div id="socialList"></div>
                     <div id="authorArticles"></div>
                 `)
-
+                getSocialList(userData)
                 getAuthorArticles(userData)
 
-            })
-            .fail((error) => {
-                console.error(error)
             })
     }
 

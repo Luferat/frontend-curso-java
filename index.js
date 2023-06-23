@@ -314,3 +314,17 @@ function openProfile() {
     sessionStorage.userId = userId
     loadpage('aboutus')
 }
+
+function getSocialList(userData) {
+    $.get(app.apiBaseURL + 'users/social/' + userData.id)
+        .done((socialData) => {
+            if (socialData.length > 0) {
+                var socialList = '<ul class="social-list">'
+                socialData.forEach((item) => {
+                    socialList += `<li><a href="${item.link}" target="_blank"><i class="fa-brands fa-fw fa-${item.name.toLowerCase()}"></i> ${item.name}</a></li>`
+                })
+                socialList += '</ul>'
+                $('#socialList').html(socialList)
+            }
+        })
+}

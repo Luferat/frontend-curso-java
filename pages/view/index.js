@@ -47,22 +47,8 @@ function getAuthor(artData) {
         })
 }
 
-function getSocialList(userData) {
-    $.get(app.apiBaseURL + 'users/social/' + userData.id)
-        .done((socialData) => {
-            if (socialData.length > 0) {
-                var socialList = '<ul class="social-list">'
-                socialData.forEach((item) => {
-                    socialList += `<li><a href="${item.link}" target="_blank"><i class="fa-brands fa-fw fa-${item.name.toLowerCase()}"></i> ${item.name}</a></li>`
-                })
-                socialList += '</ul>'
-                $('#socialList').html(socialList)
-            }
-        })
-}
-
 function getAuthorArticles(artData, limit) {
-    $.get(app.apiBaseURL + `articles/author/${artData.author}/${artData.id}/${limit}`)
+    $.get(app.apiBaseURL + `articles/author?uid=${artData.author}&art=${artData.id}&lim=${limit}`)
         .done((artsData) => {
             if (artsData.length > 0) {
                 var output = '<h3><i class="fa-solid fa-plus fa-fw"></i> Artigos</h3><ul>'
@@ -125,51 +111,50 @@ function getUserCommentForm(artData) {
 }
 
 function sendComment(event, artData, userData) {
-
     event.preventDefault()
     var content = stripHTML($('#txtContent').val().trim())
     $('#txtContent').val(content)
     if (content == '') return false
-
     const today = new Date()
     sysdate = today.toISOString().replace('T', ' ').split('.')[0]
+    request = app.apiBaseURL + `comments/find?uid=${userData.uid}&art=${artData.id}&txt=${content}`;
 
-    $.get(app.apiBaseURL + 'comments', {
-        uid: userData.uid,
-        content: content,
-        article: artData.id
-    })
+    $.get(request)
         .done((data) => {
             if (data.length > 0) {
                 popUp({ type: 'error', text: 'Ooops! Este comentário já foi enviado antes...' })
                 return false
             } else {
-
                 const formData = {
                     name: userData.displayName,
                     photo: userData.photoURL,
                     email: userData.email,
                     uid: userData.uid,
                     article: artData.id,
-                    content: content,
+                    comment: content,
                     date: sysdate,
                     status: 'on'
                 }
-
-                $.post(app.apiBaseURL + 'comments', formData)
-                    .done((data) => {
+                $.ajax({
+                    type: "POST",
+                    url: app.apiBaseURL + 'comments',
+                    data: JSON.stringify(formData),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
                         if (data.id > 0) {
                             popUp({ type: 'success', text: 'Seu comentário foi enviado com sucesso!' })
                             loadpage('view')
                         }
-                    })
-                    .fail((err) => {
-                        console.error(err)
-                    })
-
+                    },
+                    error: function (err) {
+                        console.log(err);
+                        popUp({ type: 'error', text: 'Ocorreram falhas ao enviar. Tente mais tarde.' })
+                        loadpage('view')
+                    }
+                });
             }
         })
-
 }
 
 function updateViews(artData) {
