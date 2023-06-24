@@ -59,7 +59,7 @@ function getAuthorArticles(artData, limit) {
                 $('#authorArtcicles').html(output)
             }
         })
-}
+} 
 
 function getArticleComments(artData) {
     $.get(app.apiBaseURL + `comments/${artData.id}`)

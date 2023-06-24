@@ -101,12 +101,13 @@ function sendContact(ev) {
     // Campo de status do contato.
     formJSON.status = 'received'
 
-    // Envia os dados do formulário para a API.
-    $.post(app.apiBaseURL + 'contacts', formJSON)
-
-        // Ao concluir o envio, armazena o retorno da API em "data".
-        .done((data) => {
-
+    $.ajax({
+        type: "POST",
+        url: app.apiBaseURL + 'contacts',
+        data: JSON.stringify(formJSON),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
             // Variável para armazenar a mensagem de retorno para o usuário.
             var feedback;
 
@@ -118,20 +119,20 @@ function sendContact(ev) {
 
                 // Gera a mensagem de agradecimento.
                 feedback = `
-                    <h3>Olá ${firstName}!</h3>
-                    <p>Seu contato foi enviado com sucesso.</p>
-                    <p>Obrigado...</p>
-                `;
+         <h3>Olá ${firstName}!</h3>
+         <p>Seu contato foi enviado com sucesso.</p>
+         <p>Obrigado...</p>
+     `;
 
                 // Se a API respondeu com erro...
             } else {
 
                 // Gera a mensagem de agradecimento.
                 feedback = `
-                    <h3>Oooops!</h3>
-                    <p>Não foi possível enviar seu contato. Ocorreu uma falha no servidor.</p>
-                    <p><em><code>${data.data.message}</code></em></p>
-                `
+         <h3>Oooops!</h3>
+         <p>Não foi possível enviar seu contato. Ocorreu uma falha no servidor.</p>
+         <p><em><code>${data.data.message}</code></em></p>
+     `
             }
 
             // Limpa campos do formulário.
@@ -140,7 +141,13 @@ function sendContact(ev) {
 
             // Substitui conteúdo do formulário pela mensagem de retorno.
             $('#cForm').html(feedback)
-        })
+        },
+        error: function (err) {
+            console.log(err);
+            popUp({ type: 'error', text: 'Ocorreram falhas ao enviar. Tente mais tarde.' })
+            loadpage('view')
+        }
+    });
 
     // Sai da função sendContact() sem fazer mais nada.
     return false

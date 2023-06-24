@@ -37,31 +37,15 @@ function myAbout() {
 }
 
 function getAuthorArticles(userData, limit) {
-
-    $.get(app.apiBaseURL + 'articles', {
-        author: userData.id,
-        status: 'on',
-        _sort: 'date',
-        _order: 'desc',
-        _limit: limit || 999
-    })
+    $.get(app.apiBaseURL + `articles/author?uid=${userData.id}&art=0&lim=999`)
         .done((data) => {
-
-            if(data.length > 0){
-                var htmlOut = `<h3>Artigos do ${userData.name}</h3><ul class="author-art-list">`
-
+            if (data.length > 0) {
+                var htmlOut = `<h3>Artigos de ${userData.name}</h3><ul class="author-art-list">`
                 data.forEach((item) => {
                     htmlOut += `<li class="article author-article" data-id="${item.id}">${item.title}</li>`
                 })
-
                 htmlOut += '</ul>'
             }
-
-
             $('#authorArticles').html(htmlOut)
-
-        })
-        .fail((error) => {
-            console.error(error)
         })
 }
