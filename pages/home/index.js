@@ -15,8 +15,9 @@ function myHome() {
 
     $.get(app.apiBaseURL + 'articles')
         .done((data) => {
-            data.forEach((art) => {
-                articleList += `
+            if (data.length > 0) {
+                data.forEach((art) => {
+                    articleList += `
                     <div class="article art-item" data-id="${art.id}">
                         <img src="${art.thumbnail}" alt="${art.title}">
                         <div>
@@ -25,13 +26,14 @@ function myHome() {
                         </div>
                     </div>                    
                 `
-            })
-            $('#artList').html(articleList)
-            getMostViewed(5)
-            getLastComments(5)
-
+                })
+                $('#artList').html(articleList)
+                getMostViewed(5)
+                getLastComments(5)
+            } else {
+                $('#artList').html("nenhum artigo publicado.")
+            }
         })
-
 }
 
 function getMostViewed(limit) {
